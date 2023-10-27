@@ -1,4 +1,4 @@
-# Grupo-1---Turma-A
+## Grupo-1---Turma-A
 Projeto integrador: RPG "Echos of Dungeons".
 
 # Echos of Dungeons - Prólogo
