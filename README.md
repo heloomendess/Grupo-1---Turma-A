@@ -1,7 +1,7 @@
 # Grupo-1---Turma-A
 Projeto integrador: RPG "Echos of Dungeons".
 
-* Feito por:
+Feito por:
 - Filipe Angelo de Oliveira
 - Heloisa Mendes do Nascimento Barbosa
 - Kevin Stenio Fernandes Lacerda Duarte
