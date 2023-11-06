@@ -8,6 +8,27 @@ public class Game {
     static Scanner input = new Scanner(System.in);
 
     public static float primeiraFase(){
+
+        System.out.println("Após sair da caverna, você se depara em uma cela fechada.\r\n" + 
+                "A parede quebrada na qual você entrou tinha um formato peculiar,  como se uma \n" +
+                "pessoa tivesse fugido do local, quebrando a parede. \r\n");
+
+        System.out.println("A sua frente há uma porta trancada.\r\n" +
+                "Ao se aproximar você percebe que tem um cadeado com alguns números nele.\r\n" +
+                "Tem uma sequência de três fileiras de números do 0 ao 9.\r\n" +
+                "Deseja abrir o cadeado:\r\n" +
+                "1- Tentar Abrir?\r\n" +
+                "2- Voltar\r\n");      
+
+        byte opcao = input.nextByte();
+
+        switch (opcao) {
+            case 1:
+                    
+                break;
+        
+        }
+
         Random random = new Random();
 
         int K = random.nextInt(10);
@@ -46,8 +67,7 @@ public class Game {
         int U3 = random.nextInt(10);
         int V3 = random.nextInt(10);
 
-
-        System.out.printf("{%d*%d+[%d(%d*%d)+%d+%d]-%d*%d}\n", K, L, M, N, O, P, Q,R,S);
+         System.out.printf("{%d*%d+[%d(%d*%d)+%d+%d]-%d*%d}\n", K, L, M, N, O, P, Q,R,S);
         int resultadoJogador = input.nextInt();
         int resultado1 = (K*L+(M*(N*O)+P+Q)-R*S);
 
@@ -68,12 +88,12 @@ public class Game {
         }
         return resultado;
     }
-    public static int Menu(){
+    public static int Menu() throws InterruptedException{
         boolean retornarLoop = false;
         Scanner input = new Scanner(System.in);
 
         System.out.printf("Bem-vindo ao Echos of Dungeons! \n");
-        System.out.printf("Escolha umA opção abaixo:");
+        System.out.printf("Escolha uma opção abaixo:");
 
         do {
             System.out.printf("\n1 - Instruções\n"
@@ -84,18 +104,28 @@ public class Game {
 
             switch (resposta) {
                 case 1:
-                    System.out.println("Só joga!");
+                    System.out.println("- Instruções do jogo:\r\n" + 
+                            "1- Dê um nome ao seu personagem.\r\n" + 
+                            "2- O jogo é formado por fases com desafios matemáticos, portanto, esteja com uma \n calculadora por perto (ou se preferir um papel e um lápis).\r\n" + 
+                            "3- Echos of Dungeons tem um formato de Escape Room, portanto, é necessário a escolha entre \n opções no jogo para chegar ao fim do mesmo.\r\n" + 
+                            "- Bom Jogo! \r\n");
                     break;
                 case 2:
                     System.out.println("Se vira para jogar");
                     espacamento();
+                    nomePersonagem();
+                    prologo();
                     jogo();
                     break;
                 case 3:
-                    System.out.println("PERDIDOS FC");
+                    System.out.println("Criado por:\r\n" + 
+                            "- Filipe Angelo de Oliveira\r\n" +
+                            "- Heloisa Mendes do Nascimento Barbosa\r\n" +
+                            "- Kevin Stenio Fernandes Lacerda Duarte\r\n" + 
+                            "- Renan França de Jorge\r\n");
                     break;
                 case 4:
-                    System.out.println("TCHAU!");
+                    System.out.println("Volte logo!");
                     retornarLoop = true;
                     break;
                 default:
@@ -115,7 +145,50 @@ public class Game {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         int op = Menu();
     }
-}
+    public static void prologo() throws InterruptedException {
+        for (int i = 0; i < 10; i++) {
+            System.out.println("\n");
+        }
+     //prólogo do jogo-------------------
+     System.out.println("Em uma pequena vila perdida no meio da floresta, viviam dois irmãos. Eles eram inseparáveis. \n"
+     + "Sempre se aventurando por onde iam. A irmã  mais velha, Lucy, adorava caçar desafios e diversão por onde ia, \n"
+     +  "já o irmão mais novo, *personagem* gostava de entender a natureza das coisas, de como elas funcionam . Lucy uma \n" 
+     + "certa vez explorando pela redondeza da vila encontrou uma caverna,  ainda não explorada por ela.");
+     
+     System.out.println("...");
+     Thread.sleep(15000);
+
+     System.out.println("Como de costume, quando algo novo surge,  chama seu irmão para ir junto nessa jornada. \n" +
+     "Ao chegar nela entraram sem sequer pensar duas vezes, eram fascinados em mistérios e segredos. Ao entrarem \n" + 
+     "perceberam que era extremamente escuro, não iriam ficar muito tempo ali sem algo para iluminar o caminho. \n" +
+     "Mas sem explicação, de alguma forma, essa caverna chamava eles, como se alguém estivesse sussurrando ou até mesmo \n" +
+    "um sentimento de ansiedade e curiosidade que não poderiam deixar de escutar. \r\n");
+
+    System.out.println("...");
+    Thread.sleep(10000);
+
+    System.out.println("Em um certo momento, a caverna estava tão escura que mal conseguiam enxergar um ao \n" +
+    "outro, o único guia deles agora era a voz um do outro. De repente, Lucy para de falar, o *personagem* \n" + 
+    "chama por seu nome, porém sem sucesso. O *personagem* entra em pânico e tenta voltar do caminho que fizeram \n" +
+    "na esperança de achar alguma luz novamente. \r\n");
+
+    System.out.println("...");
+    Thread.sleep(15000);
+
+    System.out.println("Ele começa a ver uma luz, corre em direção daquilo que seria a saída, mas na realidade, \n" +
+    "se deparou uma um ambiente que jamais imaginou existir. Estava vendo uma luz de duas tochas penduradas na \n" +
+    "parede, que iluminavam diversas celas de prisão, enferrujadas e repulsivas. Se deu conta que estava em uma \n" +
+    "macabra masmorra abandonada.\r\n");
+   }
+    public static void nomePersonagem() {
+        Scanner input = new Scanner(System.in);
+        String nomeUsuario;
+        System.out.println("Digite o nome do seu personagem: ");
+        nomeUsuario = input.nextLine();
+    }
+
+    
+    }
