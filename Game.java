@@ -23,16 +23,11 @@ public class Game {
                 "1- Tentar Abrir?\r\n" +
                 "2- Voltar\r\n");      
         byte opcao = input.nextByte();
+        int resultado = 0;
 
         switch (opcao) {
             case 1:
-                primeiraFase();
-            break;
-            case 2: 
-                prologo();
-            break;        
-        }
-            Random random = new Random();
+                 Random random = new Random();
 
         int K = random.nextInt(10);
         int L = random.nextInt(10);
@@ -80,18 +75,48 @@ public class Game {
 
         System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n", K3, L3, M3, N3, O3, P3, Q3, R3, S3);
         int terceiroResultadoJogador = input.nextInt();
-        int resultado3 = (K3*L3+(M3*(N3*O3)-P3+Q3)-R3*S3);
-
-        int resultado = resultado1 + resultado2 + resultado3;
+            
+        resultado = resultado1 + resultado2;
         System.out.printf("Resultado: %d \n", resultado);
         if (resultado == resultadoJogador){
             System.out.println("Acertou!");
         }else{
             System.out.println("CORNO");
         }
+        
+        break;
+            case 2: 
+                primeiraFase();
+            break;        
+        }
         return resultado;
+        
         }
         
+        public static void segundaFase(){
+            Random random = new Random();
+            int a1 = random.nextInt(5)+5;
+            int a2 = random.nextInt(10);
+            int a3 = random.nextInt(3)+1;
+            int a4 = random.nextInt(20);
+            int a5 = random.nextInt(5);
+            int a6 = random.nextInt(5);
+            int a7 = random.nextInt(5);
+            int a8 = random.nextInt(5);
+        
+            System.out.printf("Equaçao de 1° grau: \n%dx-%d = %dx+%d ", a1, a2, a3, a4);
+            System.out.print("Resposta: ");
+            float resposta = input.nextFloat();
+            float res1 = (a1 - a3 );
+            float res2 = (a4 + a2 );
+            float res3 = (res2 / res1);
+        
+            if (res3 == resposta){
+              System.out.println("parabens voce acertou.");
+            }else{
+              System.out.println("resposta errada. \na resposta certa era : "+res3);
+            }
+          }
 
         
     public static int Menu() throws InterruptedException{
@@ -142,7 +167,8 @@ public class Game {
     }
 
     public static int jogo() throws InterruptedException{
-        float fase1 = primeiraFase();
+        primeiraFase();
+        segundaFase();
         return 0;
     }
     public static void espacamento(){
