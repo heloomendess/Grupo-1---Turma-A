@@ -7,7 +7,10 @@ import java.util.Scanner;
 public class Game {
     static Scanner input = new Scanner(System.in);
 
-    public static float primeiraFase(){
+    /**
+     * @return
+     */
+    public static float primeiraFase() throws InterruptedException {
 
         System.out.println("Após sair da caverna, você se depara em uma cela fechada.\r\n" + 
                 "A parede quebrada na qual você entrou tinha um formato peculiar,  como se uma \n" +
@@ -19,17 +22,17 @@ public class Game {
                 "Deseja abrir o cadeado:\r\n" +
                 "1- Tentar Abrir?\r\n" +
                 "2- Voltar\r\n");      
-
         byte opcao = input.nextByte();
 
         switch (opcao) {
             case 1:
-                    
-                break;
-        
+                primeiraFase();
+            break;
+            case 2: 
+                prologo();
+            break;        
         }
-
-        Random random = new Random();
+            Random random = new Random();
 
         int K = random.nextInt(10);
         int L = random.nextInt(10);
@@ -87,7 +90,10 @@ public class Game {
             System.out.println("CORNO");
         }
         return resultado;
-    }
+        }
+        
+
+        
     public static int Menu() throws InterruptedException{
         boolean retornarLoop = false;
         Scanner input = new Scanner(System.in);
@@ -135,7 +141,7 @@ public class Game {
         return 0;
     }
 
-    public static int jogo(){
+    public static int jogo() throws InterruptedException{
         float fase1 = primeiraFase();
         return 0;
     }
