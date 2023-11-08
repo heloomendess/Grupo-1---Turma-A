@@ -75,8 +75,9 @@ public class Game {
 
         System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n", K3, L3, M3, N3, O3, P3, Q3, R3, S3);
         int terceiroResultadoJogador = input.nextInt();
+        int resultado3 = (K3*L3+(M3*(N3*O3)-P3+Q3)-R3*S3);
             
-        resultado = resultado1 + resultado2;
+        resultado = resultado1 + resultado2 + resultado3;
         System.out.printf("Resultado: %d \n", resultado);
         if (resultado == resultadoJogador){
             System.out.println("Acertou!");
@@ -92,8 +93,8 @@ public class Game {
         return resultado;
         
         }
-        
-        public static void segundaFase(){
+
+    public static void segundaFase(){
             Random random = new Random();
             int a1 = random.nextInt(5)+5;
             int a2 = random.nextInt(10);
@@ -114,9 +115,9 @@ public class Game {
             if (res3 == resposta){
               System.out.println("parabens voce acertou.");
             }else{
-              System.out.println("resposta errada. \na resposta certa era : "+res3);
+              System.out.println("resposta errada. \nA resposta certa era : "+res3);
             }
-          }
+    }
 
         
     public static int Menu() throws InterruptedException{
@@ -124,13 +125,13 @@ public class Game {
         Scanner input = new Scanner(System.in);
 
         System.out.printf("Bem-vindo ao Echos of Dungeons! \n");
-        System.out.printf("Escolha uma opção abaixo:");
+        System.out.printf("Escolha uma opção abaixo: \n");
 
         do {
-            System.out.printf("\n1 - Instruções\n"
-                    + "2 - Jogar\n"
-                    + "3 - Créditos\n"
-                    + "4 - Sair\n");
+            System.out.println("1 - Instruções");
+            System.out.println("2 - Jogar");
+            System.out.println("3 - Créditos");
+            System.out.println("4 - Sair");
             byte resposta = input.nextByte();
 
             switch (resposta) {
@@ -147,6 +148,7 @@ public class Game {
                     nomePersonagem();
                     prologo();
                     jogo();
+                    espacamento();
                     break;
                 case 3:
                     System.out.println("Criado por:\r\n" + 
@@ -184,37 +186,36 @@ public class Game {
         for (int i = 0; i < 10; i++) {
             System.out.println("\n");
         }
-     //prólogo do jogo-------------------
-     System.out.println("Em uma pequena vila perdida no meio da floresta, viviam dois irmãos. Eles eram inseparáveis. \n"
-     + "Sempre se aventurando por onde iam. A irmã  mais velha, Lucy, adorava caçar desafios e diversão por onde ia, \n"
-     +  "já o irmão mais novo, *personagem* gostava de entender a natureza das coisas, de como elas funcionam . Lucy uma \n" 
-     + "certa vez explorando pela redondeza da vila encontrou uma caverna,  ainda não explorada por ela.");
-     
-     System.out.println("...");
-     Thread.sleep(15000);
 
-     System.out.println("Como de costume, quando algo novo surge,  chama seu irmão para ir junto nessa jornada. \n" +
-     "Ao chegar nela entraram sem sequer pensar duas vezes, eram fascinados em mistérios e segredos. Ao entrarem \n" + 
-     "perceberam que era extremamente escuro, não iriam ficar muito tempo ali sem algo para iluminar o caminho. \n" +
-     "Mas sem explicação, de alguma forma, essa caverna chamava eles, como se alguém estivesse sussurrando ou até mesmo \n" +
-    "um sentimento de ansiedade e curiosidade que não poderiam deixar de escutar. \r\n");
+        //prólogo do jogo-------------------
+        String teste = "Em uma pequena vila perdida no meio da floresta, viviam dois irmãos. Eles eram inseparáveis. \n" +
+                "Sempre se aventurando por onde iam. A irmã  mais velha, Lucy, adorava caçar desafios e diversão por onde ia, \n" +
+                "já o irmão mais novo, *personagem* gostava de entender a natureza das coisas, de como elas funcionam . Lucy uma \n" +
+                "certa vez explorando pela redondeza da vila encontrou uma caverna,  ainda não explorada por ela. \n\n...\n\n" +
+                "Como de costume, quando algo novo surge,  chama seu irmão para ir junto nessa jornada. \n" +
+                "Ao chegar nela entraram sem sequer pensar duas vezes, eram fascinados em mistérios e segredos. Ao entrarem \n" +
+                "perceberam que era extremamente escuro, não iriam ficar muito tempo ali sem algo para iluminar o caminho. \n" +
+                "Mas sem explicação, de alguma forma, essa caverna chamava eles, como se alguém estivesse sussurrando ou até mesmo \n" +
+                "um sentimento de ansiedade e curiosidade que não poderiam deixar de escutar. \r\n\n...\n\n" +
+                "Em um certo momento, a caverna estava tão escura que mal conseguiam enxergar um ao \n" +
+                "outro, o único guia deles agora era a voz um do outro. De repente, Lucy para de falar, o *personagem* \n" +
+                "chama por seu nome, porém sem sucesso. O *personagem* entra em pânico e tenta voltar do caminho que fizeram \n" +
+                "na esperança de achar alguma luz novamente. \r\n\n...\n\n" +
+                "Ele começa a ver uma luz, corre em direção daquilo que seria a saída, mas na realidade, \n" +
+                "se deparou uma um ambiente que jamais imaginou existir. Estava vendo uma luz de duas tochas penduradas na \n" +
+                "parede, que iluminavam diversas celas de prisão, enferrujadas e repulsivas. Se deu conta que estava em uma \n" +
+                "macabra masmorra abandonada.\r\n";
 
-    System.out.println("...");
-    Thread.sleep(10000);
+        for (char c : teste.toCharArray()) {
+            System.out.print(c);
+            try {
+                Thread.sleep(40);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-    System.out.println("Em um certo momento, a caverna estava tão escura que mal conseguiam enxergar um ao \n" +
-    "outro, o único guia deles agora era a voz um do outro. De repente, Lucy para de falar, o *personagem* \n" + 
-    "chama por seu nome, porém sem sucesso. O *personagem* entra em pânico e tenta voltar do caminho que fizeram \n" +
-    "na esperança de achar alguma luz novamente. \r\n");
-
-    System.out.println("...");
-    Thread.sleep(15000);
-
-    System.out.println("Ele começa a ver uma luz, corre em direção daquilo que seria a saída, mas na realidade, \n" +
-    "se deparou uma um ambiente que jamais imaginou existir. Estava vendo uma luz de duas tochas penduradas na \n" +
-    "parede, que iluminavam diversas celas de prisão, enferrujadas e repulsivas. Se deu conta que estava em uma \n" +
-    "macabra masmorra abandonada.\r\n");
-   }
     public static void nomePersonagem() {
         Scanner input = new Scanner(System.in);
         String nomeUsuario;
