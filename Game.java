@@ -304,7 +304,113 @@ public class Game  {
         }
         }
     }
+  
+  public static void faseHexadecimal() {
+    Scanner entrada = new Scanner(System.in);
+    System.out.println("Cadeado Hex. _______");
+    System.out.println("sala hexa.");
 
+    Random random = new Random();
+    int a1 = 0, a2 = 0, a3 = 0;
+    int a4 = 0, a5 = 0, a6 = 0;
+    int a7 = 0, a8 = 0, a9 = 0;
+    int a10 = 0, a11 = 0, a12 = 0;
+    int q1 = 0, q2 = 0, q3 = 0, q4 = 0;
+
+    do {
+      a1 = random.nextInt(9) + 1;
+      a2 = random.nextInt(9) + 1;
+      a3 = random.nextInt(9) + 1;
+      q1 = a1 + a2 - a3;
+
+    } while (q1 != 12);
+    String nb1 = converterParaBinario(a1);
+    String nb2 = converterParaBinario(a2);
+    String nb3 = converterParaBinario(a3);
+
+    System.out.printf("perg. converta de binario p decimal: %s+%s-%s\n", nb1, nb2, nb3);
+    int res = entrada.nextInt();
+    if (res == 12) {
+      System.out.println("paraben acertou a mizeravel...");
+    } // ------------------------------------------------------------------------------
+    do {
+      a4 = random.nextInt(9) + 1;
+      a5 = random.nextInt(9) + 1;
+      a6 = random.nextInt(9) + 1;
+      q2 = a4 + a5 - a6;
+
+    } while (q2 != 10);
+    String nb4 = converterParaBinario(a4);
+    String nb5 = converterParaBinario(a5);
+    String nb6 = converterParaBinario(a6);
+
+    System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb4, nb5, nb6);
+    int res2 = entrada.nextInt();
+    if (res2 == 10) {
+      System.out.println("paraben acertou a mizeravel...");
+    } // ----------------------------------------------------------------------------------
+    do {
+      a7 = random.nextInt(9) + 1;
+      a8 = random.nextInt(9) + 1;
+      a9 = random.nextInt(9) + 1;
+      q3 = a7 + a8 - a9;
+
+    } while (q3 != 15);
+    String nb7 = converterParaBinario(a7);
+    String nb8 = converterParaBinario(a8);
+    String nb9 = converterParaBinario(a9);
+
+    System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb7, nb8, nb9);
+    int res3 = entrada.nextInt();
+    if (res3 == 15) {
+      System.out.println("paraben acertou a mizeravel...");
+    } // -----------------------------------------------------------------------------
+
+    do {
+      a10 = random.nextInt(9) + 1;
+      a11 = random.nextInt(9) + 1;
+      a12 = random.nextInt(9) + 1;
+      q4 = a10 + a11 - a12;
+
+    } while (q4 != 14);
+    String nb10 = converterParaBinario(a10);
+    String nb11 = converterParaBinario(a11);
+    String nb12 = converterParaBinario(a12);
+
+    System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb10, nb11, nb12);
+    int res4 = entrada.nextInt();
+    if (res4 == 14) {
+      System.out.println("paraben acertou a mizeravel...");
+    }
+    System.out.println("tex explicando...\ndigite os resultados anterio em Hex.");
+    System.out.println("cadeado: ");
+    String res5 = entrada.next();
+
+    if (res5.equals("CAFE") || res5.equals("cafe")) {
+      System.out.println("paraben proxima fase");
+    } else {
+      System.out.println("resposta errada");
+    }
+  }
+
+  public static String converterParaBinario(int decimal) {
+    if (decimal == 0) {
+      return "0000";
+    }
+
+    StringBuilder binario = new StringBuilder();
+    while (decimal > 0) {
+      int bitMenosSignificativo = decimal & 1;
+      binario.insert(0, bitMenosSignificativo);
+      decimal >>= 1;
+    }
+
+    while (binario.length() < 4) {
+      binario.insert(0, "0");
+    }
+
+    return binario.toString();
+  }
 
     public static int Menu() throws InterruptedException {
         boolean retornarLoop = false;
@@ -362,11 +468,11 @@ public class Game  {
 
 
     public static int jogo() throws InterruptedException {
+       faseHexadecimal();
        faseRomana();
        faseCadeado();
        faseEquacao();
        faseBinaria();
-       //faseHexadecimal();
        return 0;
     }
 
