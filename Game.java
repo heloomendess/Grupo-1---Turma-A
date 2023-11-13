@@ -11,11 +11,10 @@ public class Game  {
      * @return
      */
 
-    public static float primeiraFase() throws InterruptedException {
-        String primeiraFase = "Após sair da caverna, você se depara em uma cela fechada.\r\n" +
-                "A parede quebrada na qual você entrou tinha um formato peculiar,  como se uma \n" +
-                "pessoa tivesse fugido do local, quebrando a parede. \r\n" +
-                "A sua frente há uma porta trancada.\r\n\n" +
+    public static float faseCadeado() throws InterruptedException {
+        String primeiraFase = "A porta fechada começa a abrir sozinha, entranho para uma masmorra algo tecnológico assim.\r\n" +
+                "Quando você atravesa essa porta, você se encontra em uma jaula, repleta de barras e grades a volta.\r\n" +
+                "A sua frente há uma porta trancada, desta vez com uma simples fechadura.\r\n\n" +
                 "Ao se aproximar você percebe que tem uma tranca com 3 fileiras de senha para colocar.\r\n" +
                 "Em cada fileira ha escrito algumas contas para resolver.\r\n" +
                 "Nessa cela há também uma mesa com um papel nela, e tem alguns dizeres. \r\n\n\n" +
@@ -97,7 +96,7 @@ public class Game  {
                 break;
             case 2:
                 System.out.println("Parece que no papel há um tipo de dica");
-                System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro");
+                System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro\r\n");
                 return opcao;
         }
         return resultado;
@@ -105,7 +104,7 @@ public class Game  {
 
 
 
-    public static void segundaFase() {
+    public static void faseEquacao() {
         Random random = new Random();
         int a1 = random.nextInt(5) + 5;
         int a2 = random.nextInt(10);
@@ -115,12 +114,13 @@ public class Game  {
         int a6 = random.nextInt(5);
         int a7 = random.nextInt(5);
         int a8 = random.nextInt(5);
-        String segundaFase = "A sua direita há um corredor que leva a uma porta de ferro entreaberta.\n" +
-                "Ao se aproximar dessa porta, você percebe que alguém acabou de passar por ali.\n" +
-                "A maçaneta não tinha poeira como o restante da porta, já que tudo estava abandonado.\n" +
-                "Ao abrir a porta você se depara com um grande salão, com um grande portão de grades de ferro.\n" +
-                "Atrás desse portão, você sente uma brisa estranha, um vento que vinha da completa escuridão que havia ali.\n" +
-                "Ao chegar nesse portão enferrujado, há um nota grudada nele dizendo:";
+        String segundaFase = "Ao destravar a tranca e abrir a porta, você percebe que há uma escadaria.\n" +
+                "Ao descer essa escadaria, você se encontra em um corredor mal iluminado por tochas \n" +
+                "Andando por esse corredor, no fim você encontra uma bifurcação.\n" +
+                "Na parede que divide esses dois caminhos, há escrito: \r\n" +
+                "Esquerda = Falso\n" +
+                "Direita = Verdadeiro\n " +
+                "Mais abaixo, há uma outra frase escrita:";
         for (char c : segundaFase.toCharArray()) {
             System.out.print(c);
             try {
@@ -197,53 +197,112 @@ public class Game  {
     }
 
 
-    public static void faseRomana() {
+    public static void faseRomana() throws InterruptedException {
         Scanner input = new Scanner(System.in);
+        boolean sairDoLoop = false;
+
+        while (!sairDoLoop) {
         String resultPM1;
         String resultPH1;
+        String resultPM2;
+        String resultPH2;
+        String resultPM3;
+        String resultPH3;
+        String resultPM4;
+        String resultPH4;
         boolean verificacaoResult = false;
-        System.out.println("relogios");
-        String ponteiro1_H = "IV";
-        String ponteiro1_M = "XXXI";
+        System.out.println("Após sair dessa caverna, você se depara com uma sala misteriosa\n " +
+                            "Aparentemente você está em especie de masmorra, as paredes são estramamente velhas e escuras\n " +
+                            "Nessa sala, há uma porta de ferro bem enferrujada, provavel que ninguem mexe nela há anos\n " +
+                            "Mas não é só isso, nessa sala ha diversos relogios pendurados na parede, e você consegue mexer os ponteros neles\n" +
+                            "O que deja fazer?\n" +
+                            "1 - Olhar a parede a direita\n" +
+                            "2 - Olhar a parede a esquerda\n" +
+                            "3 - Tentar abrir porta\n");
 
-        String ponteiro2_H = "XI";
-        String ponteiro2_M = "XXII";
-
-        String ponteiro3_H = "VIII";
-        String ponteiro3_M = "LIV";
-
-        String ponteiro4_H = "II";
-        String ponteiro4_M = "XV";
-
-
-        do {
-            System.out.println("Conta do primeiro relógio: ");
-            System.out.println("II + II = ?");
-            resultPH1 = input.next();
-            System.out.println("XL + X - XIX = ?");
-            resultPM1 = input.next();
-            if ((resultPH1.equals(ponteiro1_H)) && (resultPM1.equals(ponteiro1_M))){
-                verificacaoResult = true;
-                System.out.println(verificacaoResult);
-            } else{
-                verificacaoResult = false;
-            }
-        } while (!verificacaoResult);
-
-
-        System.out.println("Conta do segundo relógio: ");
-        System.out.println("XVIII - VII = ?");
-        System.out.println("XI + XI = ?");
-
-        System.out.println("Conta do terceiro relógio: ");
-        System.out.println("XVI / II = ?");
-        System.out.println("XVIII * III");
-
-        System.out.println("Conta do quarto relógio: ");
-        System.out.println("IV / II = ?");
-        System.out.println("XXX - XV");
+        byte opcao2  = input.nextByte();
+        switch (opcao2) {
+            case 1:
+                System.out.println("Quando você olha a sua direita, tem algumas letras escritas na parede:\n" +
+                        "Você entende que são números romanos\n" +
+                        "Ponteros Grandes\n" +
+                        "1º = XL + X - XIX = ?\n" +
+                        "2ª = XI + XI = ?\n" +
+                        "3º = XVIII * III = ?\n" +
+                        "4º = XXX - XV = ?\n");
+                break;
+            case 2:
+                System.out.println("Quando você olha a sua esquerda, tem algumas palabras escritas na parede:\n" +
+                        "Você percebe que são algarismos romanos\n" +
+                        "Ponteros Pequenos\n" +
+                        "1º II + II = ?\n" +
+                        "2º XI + XI = ?\n" +
+                        "3º XVIII * III = ?\n" +
+                        "4º XXX - XV = ?\n");
+                break;
+            case 3:
+                System.out.println("Ao lado da porta, há quatro relógios em sistema romano\n" +
+                        "Você entende um pouco desse sistema:\n" +
+                        "I = 1\n" +
+                        "V = 5\n" +
+                        "X = 10\n" +
+                        "L = 50\n" +
+                        "E que 4 e 9 são: IV e IX\n" +
+                        "Você tenta abrir mexendo no ponteiros");
 
 
+                String ponteiro1_H = "IV";
+                String ponteiro1_M = "XXXI";
+
+                String ponteiro2_H = "XI";
+                String ponteiro2_M = "XXII";
+
+                String ponteiro3_H = "VIII";
+                String ponteiro3_M = "LIV";
+
+                String ponteiro4_H = "II";
+                String ponteiro4_M = "XV";
+
+
+                do {
+                    System.out.println("1º relógio ");
+                    System.out.println("Ponteiro Pequeno: ");
+                    resultPH1 = input.next();
+                    System.out.println("Ponteiro Grande: ");
+                    resultPM1 = input.next();
+                    System.out.println("2º Relógio");
+                    System.out.println("Ponteiro Pequeno: ");
+                    resultPH2 = input.next();
+                    System.out.println("Ponteiro Grande: ");
+                    resultPM2 = input.next();
+                    System.out.println("3º Relógio ");
+                    System.out.println("Ponteiro Pequeno");
+                    resultPH3 = input.next();
+                    System.out.println("Ponteiro Grande");
+                    resultPM3 = input.next();
+                    System.out.println("4º Relógio");
+                    System.out.println("Ponteiro Pequeno");
+                    resultPH4 = input.next();
+                    System.out.println("Ponteiro Grande");
+                    resultPM4 = input.next();
+                    if ((resultPH1.equals(ponteiro1_H)) && (resultPM1.equals(ponteiro1_M)) &&
+                            (resultPH2.equals(ponteiro2_H)) && (resultPM2.equals(ponteiro2_M)) &&
+                            (resultPH3.equals(ponteiro3_H)) && (resultPM3.equals(ponteiro3_M)) &&
+                            (resultPH4.equals(ponteiro4_H)) && (resultPM4.equals(ponteiro4_M))
+
+                    ) {
+                        verificacaoResult = true;
+                        System.out.println("Você escuta engrenagens se mexendo, parece que você acertou a sequência! ");
+                    } else {
+                        verificacaoResult = false;
+                        System.out.println("Errou, volta tudo");
+                        //return opcao2;
+                    }
+                } while (!verificacaoResult);
+                sairDoLoop = true;
+                break;
+        }
+        }
     }
 
 
@@ -303,11 +362,12 @@ public class Game  {
 
 
     public static int jogo() throws InterruptedException {
-        faseRomana();
-        primeiraFase();
-        segundaFase();
-        faseBinaria();
-        return 0;
+       faseRomana();
+       faseCadeado();
+       faseEquacao();
+       faseBinaria();
+       //faseHexadecimal();
+       return 0;
     }
 
 
