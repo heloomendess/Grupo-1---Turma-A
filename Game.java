@@ -12,6 +12,8 @@ public class Game  {
      */
 
     public static float faseCadeado() throws InterruptedException {
+        int resultado = 0;
+        boolean verificacaoResult = false;
         String primeiraFase = "A porta fechada começa a abrir sozinha, entranho para uma masmorra algo tecnológico assim.\r\n" +
                 "Quando você atravesa essa porta, você se encontra em uma jaula, repleta de barras e grades a volta.\r\n" +
                 "A sua frente há uma porta trancada, desta vez com uma simples fechadura.\r\n\n" +
@@ -21,88 +23,77 @@ public class Game  {
                 "O que deseja fazer?\r\n" +
                 "1- Tentar abrir cadeado\r\n" +
                 "2- Olhar mesa\r\n";
-        for (char c : primeiraFase.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
 
-
-
+        do {
+        animacaoTexto(primeiraFase);
         byte opcao = input.nextByte();
-        int resultado = 0;
-        switch (opcao) {
-            case 1:
-                Random random = new Random();
-                int K = random.nextInt(10);
-                int L = random.nextInt(10);
-                int M = random.nextInt(10);
-                int O = random.nextInt(10);
-                int N = random.nextInt(10);
-                int P = random.nextInt(10);
-                int Q = random.nextInt(10);
-                int R = random.nextInt(10);
-                int S = random.nextInt(10);
-                int K2 = random.nextInt(10);
-                int L2 = random.nextInt(10);
-                int M2 = random.nextInt(10);
-                int O2 = random.nextInt(10);
-                int N2 = random.nextInt(10);
-                int P2 = random.nextInt(10);
-                int Q2 = random.nextInt(10);
-                int R2 = random.nextInt(10);
-                int S2 = random.nextInt(10);
-                int T2 = random.nextInt(10);
-                int U2 = random.nextInt(10);
-                int V2 = random.nextInt(10);
-                int K3 = random.nextInt(10);
-                int L3 = random.nextInt(10);
-                int M3 = random.nextInt(10);
-                int O3 = random.nextInt(10);
-                int N3 = random.nextInt(10);
-                int P3 = random.nextInt(10);
-                int Q3 = random.nextInt(10);
-                int R3 = random.nextInt(10);
-                int S3 = random.nextInt(10);
-                int T3 = random.nextInt(10);
-                int U3 = random.nextInt(10);
-                int V3 = random.nextInt(10);
-                System.out.println("1ª Fileira de Senha");
-                System.out.printf("{%d*%d+[%d(%d*%d)+%d+%d]-%d*%d}\n", K, L, M, N, O, P, Q, R, S);
-                System.out.println("1ª resposta: ");
-                int resultadoJogador = input.nextInt();
-                int resultado1 = (K * L + (M * (N * O) + P + Q) - R * S);
-                System.out.println("2ª Fileira de Senha");
-                System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n", K2, L2, M2, N2, O2, P2, Q2, R2, S2);
-                System.out.println("2ª resposta: ");
-                int segundoResultadoJogador = input.nextInt();
-                int resultado2 = (K2 * L2 + (M2 * (N2 * O2) - P2 + Q2) - R2 * S2);
-                System.out.println("3ª Fileira de Senha");
-                System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n", K3, L3, M3, N3, O3, P3, Q3, R3, S3);
-                System.out.println("3ª resposta: ");
-                int terceiroResultadoJogador = input.nextInt();
-                int resultado3 = (K3 * L3 + (M3 * (N3 * O3) - P3 + Q3) - R3 * S3);
-                resultado = resultado1 + resultado2 + resultado3;
-                System.out.println("Qual é a senha?");
-                int resultadoCadeado = input.nextInt();
-                if (resultadoCadeado == resultado) {
-                    System.out.println("Você escuta um 'click', esta destrancada!");
-                } else {
-                    System.out.println("Nada aconteceu...");
-                }
-                break;
-            case 2:
-                System.out.println("Parece que no papel há um tipo de dica");
-                System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro\r\n");
-                return opcao;
-        }
+
+
+
+            switch (opcao) {
+                case 1:
+                    Random random = new Random();
+                    int K = random.nextInt(10);
+                    int L = random.nextInt(10);
+                    int M = random.nextInt(10);
+                    int O = random.nextInt(10);
+                    int N = random.nextInt(10);
+                    int P = random.nextInt(10);
+                    int Q = random.nextInt(10);
+                    int R = random.nextInt(10);
+                    int S = random.nextInt(10);
+                    int K2 = random.nextInt(10);
+                    int L2 = random.nextInt(10);
+                    int M2 = random.nextInt(10);
+                    int O2 = random.nextInt(10);
+                    int N2 = random.nextInt(10);
+                    int P2 = random.nextInt(10);
+                    int Q2 = random.nextInt(10);
+                    int R2 = random.nextInt(10);
+                    int S2 = random.nextInt(10);
+                    int K3 = random.nextInt(10);
+                    int L3 = random.nextInt(10);
+                    int M3 = random.nextInt(10);
+                    int O3 = random.nextInt(10);
+                    int N3 = random.nextInt(10);
+                    int P3 = random.nextInt(10);
+                    int Q3 = random.nextInt(10);
+                    int R3 = random.nextInt(10);
+                    int S3 = random.nextInt(10);
+                    int T3 = random.nextInt(10);
+                    System.out.println("1ª Fileira de Senha");
+                    System.out.printf("{%d*%d+[%d(%d*%d)+%d+%d]-%d*%d}\n", K, L, M, N, O, P, Q, R, S);
+                    System.out.println("1ª resposta: ");
+                    int resultadoJogador = input.nextInt();
+                    int resultado1 = (K * L + (M * (N * O) + P + Q) - R * S);
+                    System.out.println("2ª Fileira de Senha");
+                    System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n", K2, L2, M2, N2, O2, P2, Q2, R2, S2);
+                    System.out.println("2ª resposta: ");
+                    int segundoResultadoJogador = input.nextInt();
+                    int resultado2 = (K2 * L2 + (M2 * (N2 * O2) - P2 + Q2) - R2 * S2);
+                    System.out.println("3ª Fileira de Senha");
+                    System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n", K3, L3, M3, N3, O3, P3, Q3, R3, S3);
+                    System.out.println("3ª resposta: ");
+                    int terceiroResultadoJogador = input.nextInt();
+                    int resultado3 = (K3 * L3 + (M3 * (N3 * O3) - P3 + Q3) - R3 * S3);
+                    resultado = resultado1 + resultado2 + resultado3;
+                    System.out.println("Qual é a senha?");
+                    int resultadoCadeado = input.nextInt();
+                    if (resultadoCadeado == resultado) {
+                        System.out.println("Você escuta um 'click', esta destrancada!");
+                        verificacaoResult = true;
+                    } else {
+                        System.out.println("Nada aconteceu...");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Parece que no papel há um tipo de dica");
+                    System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro\r\n");
+                    break;
+            }
+        }while (!verificacaoResult);
         return resultado;
     }
-
-
 
     public static void faseEquacao() {
         Random random = new Random();
@@ -121,14 +112,9 @@ public class Game  {
                 "Esquerda = Falso\n" +
                 "Direita = Verdadeiro\n " +
                 "Mais abaixo, há uma outra frase escrita:";
-        for (char c : segundaFase.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        animacaoTexto(segundaFase);
+
+
         System.out.printf("Equaçao de 1° grau: \n%dx-%d = %dx+%d ", a1, a2, a3, a4);
         System.out.print("Resposta: ");
         float resposta = input.nextFloat();
@@ -205,66 +191,73 @@ public class Game  {
         boolean sairDoLoop = false;
 
         do {
-        String resultPM1;
-        String resultPH1;
-        String resultPM2;
-        String resultPH2;
-        String resultPM3;
-        String resultPH3;
-        String resultPM4;
-        String resultPH4;
-        boolean verificacaoResult = false;
-        System.out.println("Após sair dessa caverna, você se depara com uma sala misteriosa\n " +
-                            "Aparentemente você está em especie de masmorra, as paredes são estramamente velhas e escuras\n " +
-                            "Nessa sala, há uma porta de ferro bem enferrujada, provavel que ninguem mexe nela há anos\n " +
-                            "Mas não é só isso, nessa sala ha diversos relogios pendurados na parede, e você consegue mexer os ponteros neles\n" +
-                            "O que deja fazer?\n" +
-                            "1 - Olhar a parede a direita\n" +
-                            "2 - Olhar a parede a esquerda\n" +
-                            "3 - Tentar abrir porta\n");
+            String resultPM1;
+            String resultPH1;
+            String resultPM2;
+            String resultPH2;
+            String resultPM3;
+            String resultPH3;
+            String resultPM4;
+            String resultPH4;
+            boolean verificacaoResult = false;
+            String romanaFase = "Após sair dessa caverna, você se depara com uma sala misteriosa\n " +
+                    "Aparentemente você está em especie de masmorra, as paredes são estramamente velhas e escuras\n " +
+                    "Nessa sala, há uma porta de ferro bem enferrujada, provavel que ninguem mexe nela há anos\n " +
+                    "Mas não é só isso, nessa sala ha diversos relogios pendurados na parede, e você consegue mexer os ponteros neles\n" +
+                    "O que deja fazer?\n" +
+                    "1 - Olhar a parede a direita\n" +
+                    "2 - Olhar a parede a esquerda\n" +
+                    "3 - Tentar abrir porta\n";
 
-        byte opcao2  = input.nextByte();
-        switch (opcao2) {
-            case 1:
-                System.out.println("Quando você olha a sua direita, tem algumas letras escritas na parede:\n" +
-                        "Você entende que são números romanos\n" +
-                        "Ponteros Grandes\n" +
-                        "1º = XL + X - XIX = ?\n" +
-                        "2ª = XI + XI = ?\n" +
-                        "3º = XVIII * III = ?\n" +
-                        "4º = XXX - XV = ?\n");
-                break;
-            case 2:
-                System.out.println("Quando você olha a sua esquerda, tem algumas palabras escritas na parede:\n" +
-                        "Você percebe que são algarismos romanos\n" +
-                        "Ponteros Pequenos\n" +
-                        "1º II + II = ?\n" +
-                        "2º XI + XI = ?\n" +
-                        "3º XVIII * III = ?\n" +
-                        "4º XXX - XV = ?\n");
-                break;
-            case 3:
-                System.out.println("Ao lado da porta, há quatro relógios em sistema romano\n" +
-                        "Você entende um pouco desse sistema:\n" +
-                        "I = 1\n" +
-                        "V = 5\n" +
-                        "X = 10\n" +
-                        "L = 50\n" +
-                        "E que 4 e 9 são: IV e IX\n" +
-                        "Você tenta abrir mexendo no ponteiros");
+            animacaoTexto(romanaFase);
 
+            byte opcao2  = input.nextByte();
+            switch (opcao2) {
+                case 1:
+                    String primeiraDicaRomana = "Quando você olha a sua direita, tem algumas letras escritas na parede:\n" +
+                            "Você entende que são números romanos\n" +
+                            "Ponteros Grandes\n" +
+                            "1º = XL + X - XIX = ?\n" +
+                            "2ª = XI + XI = ?\n" +
+                            "3º = XVIII * III = ?\n" +
+                            "4º = XXX - XV = ?\n";
 
-                String ponteiro1_H = "IV";
-                String ponteiro1_M = "XXXI";
+                    animacaoTexto(primeiraDicaRomana);
+                    break;
+                case 2:
+                    String segundaDicaRomana = "Quando você olha a sua esquerda, tem algumas palabras escritas na parede:\n" +
+                            "Você percebe que são algarismos romanos\n" +
+                            "Ponteros Pequenos\n" +
+                            "1º II + II = ?\n" +
+                            "2º XI + XI = ?\n" +
+                            "3º XVIII * III = ?\n" +
+                            "4º XXX - XV = ?\n";
 
-                String ponteiro2_H = "XI";
-                String ponteiro2_M = "XXII";
+                    animacaoTexto(segundaDicaRomana);
+                    break;
+                case 3:
+                    String relogios = "Ao lado da porta, há quatro relógios em sistema romano\n" +
+                            "Você entende um pouco desse sistema:\n" +
+                            "I = 1\n" +
+                            "V = 5\n" +
+                            "X = 10\n" +
+                            "L = 50\n" +
+                            "E que 4 e 9 são: IV e IX\n" +
+                            "Você tenta abrir mexendo no ponteiros";
 
-                String ponteiro3_H = "VIII";
-                String ponteiro3_M = "LIV";
+                    animacaoTexto(relogios);
 
-                String ponteiro4_H = "II";
-                String ponteiro4_M = "XV";
+                    String ponteiro1_H = "IV";
+                    String ponteiro1_M = "XXXI";
+
+                    String ponteiro2_H = "XI";
+                    String ponteiro2_M = "XXII";
+
+                    String ponteiro3_H = "VIII";
+                    String ponteiro3_M = "LIV";
+
+                    String ponteiro4_H = "II";
+                    String ponteiro4_M = "XV";
 
                     System.out.println("1º relógio ");
                     System.out.println("Ponteiro Pequeno: ");
@@ -299,117 +292,117 @@ public class Game  {
                         System.out.println("Errou, volta tudo");
                         //return opcao2;
                     }
-                break;
+                    break;
             }
         } while (!sairDoLoop);
     }
-  
-  public static void faseHexadecimal() {
-    Scanner entrada = new Scanner(System.in);
-    System.out.println("Cadeado Hex. _______");
-    System.out.println("sala hexa.");
 
-    Random random = new Random();
-    int a1 = 0, a2 = 0, a3 = 0;
-    int a4 = 0, a5 = 0, a6 = 0;
-    int a7 = 0, a8 = 0, a9 = 0;
-    int a10 = 0, a11 = 0, a12 = 0;
-    int q1 = 0, q2 = 0, q3 = 0, q4 = 0;
+    public static void faseHexadecimal() {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Cadeado Hex. _______");
+        System.out.println("sala hexa.");
 
-    do {
-      a1 = random.nextInt(9) + 1;
-      a2 = random.nextInt(9) + 1;
-      a3 = random.nextInt(9) + 1;
-      q1 = a1 + a2 - a3;
+        Random random = new Random();
+        int a1 = 0, a2 = 0, a3 = 0;
+        int a4 = 0, a5 = 0, a6 = 0;
+        int a7 = 0, a8 = 0, a9 = 0;
+        int a10 = 0, a11 = 0, a12 = 0;
+        int q1 = 0, q2 = 0, q3 = 0, q4 = 0;
 
-    } while (q1 != 12);
-    String nb1 = converterParaBinario(a1);
-    String nb2 = converterParaBinario(a2);
-    String nb3 = converterParaBinario(a3);
+        do {
+            a1 = random.nextInt(9) + 1;
+            a2 = random.nextInt(9) + 1;
+            a3 = random.nextInt(9) + 1;
+            q1 = a1 + a2 - a3;
 
-    System.out.printf("pergunta. converta de binario p decimal: %s+%s-%s\n", nb1, nb2, nb3);
-    int res = entrada.nextInt();
-    if (res == 12) {
-      System.out.println("PARABÉNS! acertou a mizeravel...");
-    } // ------------------------------------------------------------------------------
-    do {
-      a4 = random.nextInt(9) + 1;
-      a5 = random.nextInt(9) + 1;
-      a6 = random.nextInt(9) + 1;
-      q2 = a4 + a5 - a6;
+        } while (q1 != 12);
+        String nb1 = converterParaBinario(a1);
+        String nb2 = converterParaBinario(a2);
+        String nb3 = converterParaBinario(a3);
 
-    } while (q2 != 10);
-    String nb4 = converterParaBinario(a4);
-    String nb5 = converterParaBinario(a5);
-    String nb6 = converterParaBinario(a6);
+        System.out.printf("pergunta. converta de binario p decimal: %s+%s-%s\n", nb1, nb2, nb3);
+        int res = entrada.nextInt();
+        if (res == 12) {
+            System.out.println("PARABÉNS! acertou a mizeravel...");
+        } // ------------------------------------------------------------------------------
+        do {
+            a4 = random.nextInt(9) + 1;
+            a5 = random.nextInt(9) + 1;
+            a6 = random.nextInt(9) + 1;
+            q2 = a4 + a5 - a6;
 
-    System.out.printf("Por qual o valor em decimal: %s+%s-%s\n", nb4, nb5, nb6);
-    int res2 = entrada.nextInt();
-    if (res2 == 10) {
-      System.out.println("PARABÉNS! acertou a mizeravel...");
-    } // ----------------------------------------------------------------------------------
-    do {
-      a7 = random.nextInt(9) + 1;
-      a8 = random.nextInt(9) + 1;
-      a9 = random.nextInt(9) + 1;
-      q3 = a7 + a8 - a9;
+        } while (q2 != 10);
+        String nb4 = converterParaBinario(a4);
+        String nb5 = converterParaBinario(a5);
+        String nb6 = converterParaBinario(a6);
 
-    } while (q3 != 15);
-    String nb7 = converterParaBinario(a7);
-    String nb8 = converterParaBinario(a8);
-    String nb9 = converterParaBinario(a9);
+        System.out.printf("Por qual o valor em decimal: %s+%s-%s\n", nb4, nb5, nb6);
+        int res2 = entrada.nextInt();
+        if (res2 == 10) {
+            System.out.println("PARABÉNS! acertou a mizeravel...");
+        } // ----------------------------------------------------------------------------------
+        do {
+            a7 = random.nextInt(9) + 1;
+            a8 = random.nextInt(9) + 1;
+            a9 = random.nextInt(9) + 1;
+            q3 = a7 + a8 - a9;
 
-    System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb7, nb8, nb9);
-    int res3 = entrada.nextInt();
-    if (res3 == 15) {
-      System.out.println("paraben acertou a mizeravel...");
-    } // -----------------------------------------------------------------------------
+        } while (q3 != 15);
+        String nb7 = converterParaBinario(a7);
+        String nb8 = converterParaBinario(a8);
+        String nb9 = converterParaBinario(a9);
 
-    do {
-      a10 = random.nextInt(9) + 1;
-      a11 = random.nextInt(9) + 1;
-      a12 = random.nextInt(9) + 1;
-      q4 = a10 + a11 - a12;
+        System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb7, nb8, nb9);
+        int res3 = entrada.nextInt();
+        if (res3 == 15) {
+            System.out.println("paraben acertou a mizeravel...");
+        } // -----------------------------------------------------------------------------
 
-    } while (q4 != 14);
-    String nb10 = converterParaBinario(a10);
-    String nb11 = converterParaBinario(a11);
-    String nb12 = converterParaBinario(a12);
+        do {
+            a10 = random.nextInt(9) + 1;
+            a11 = random.nextInt(9) + 1;
+            a12 = random.nextInt(9) + 1;
+            q4 = a10 + a11 - a12;
 
-    System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb10, nb11, nb12);
-    int res4 = entrada.nextInt();
-    if (res4 == 14) {
-      System.out.println("paraben acertou a mizeravel...");
-    }
-    System.out.println("tex explicando...\ndigite os resultados anterio em Hex.");
-    System.out.println("cadeado: ");
-    String res5 = entrada.next();
+        } while (q4 != 14);
+        String nb10 = converterParaBinario(a10);
+        String nb11 = converterParaBinario(a11);
+        String nb12 = converterParaBinario(a12);
 
-    if (res5.equals("CAFE") || res5.equals("cafe")) {
-      System.out.println("paraben proxima fase");
-    } else {
-      System.out.println("resposta errada");
-    }
-  }
+        System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb10, nb11, nb12);
+        int res4 = entrada.nextInt();
+        if (res4 == 14) {
+            System.out.println("paraben acertou a mizeravel...");
+        }
+        System.out.println("tex explicando...\ndigite os resultados anterio em Hex.");
+        System.out.println("cadeado: ");
+        String res5 = entrada.next();
 
-  public static String converterParaBinario(int decimal) {
-    if (decimal == 0) {
-      return "0000";
+        if (res5.equals("CAFE") || res5.equals("cafe")) {
+            System.out.println("paraben proxima fase");
+        } else {
+            System.out.println("resposta errada");
+        }
     }
 
-    StringBuilder binario = new StringBuilder();
-    while (decimal > 0) {
-      int bitMenosSignificativo = decimal & 1;
-      binario.insert(0, bitMenosSignificativo);
-      decimal >>= 1;
-    }
+    public static String converterParaBinario(int decimal) {
+        if (decimal == 0) {
+            return "0000";
+        }
 
-    while (binario.length() < 4) {
-      binario.insert(0, "0");
-    }
+        StringBuilder binario = new StringBuilder();
+        while (decimal > 0) {
+            int bitMenosSignificativo = decimal & 1;
+            binario.insert(0, bitMenosSignificativo);
+            decimal >>= 1;
+        }
 
-    return binario.toString();
-  }
+        while (binario.length() < 4) {
+            binario.insert(0, "0");
+        }
+
+        return binario.toString();
+    }
 
     public static int Menu() throws InterruptedException {
         boolean retornarLoop = false;
@@ -424,25 +417,18 @@ public class Game  {
             byte resposta = input.nextByte();
             switch (resposta) {
                 case 1:
-                    String introducao = "1- Dê um nome ao seu personagem.\r\n" +
+                    String Instrucoes = "1- Dê um nome ao seu personagem.\r\n" +
                             "2- O jogo é formado por fases com desafios matemáticos, portanto, esteja com uma \n calculadora por perto (ou se preferir um papel e um lápis).\r\n"
                             +
                             "3- Echos of Dungeons tem um formato de Escape Room, portanto, é necessário a escolha entre \n opções no jogo para chegar ao fim do mesmo.\r\n"
                             +
                             "- Bom Jogo! \r\n";
-                    for (char c : introducao.toCharArray()) {
-                        System.out.print(c);
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
+
+                    animacaoTexto(Instrucoes);
                     break;
                 case 2:
                     System.out.println("Se vira para jogar");
                     espacamento();
-                    nomePersonagem();
                     prologo();
                     jogo();
                     espacamento();
@@ -467,12 +453,12 @@ public class Game  {
 
 
     public static int jogo() throws InterruptedException {
-       faseHexadecimal();
-       faseRomana();
-       faseCadeado();
-       faseEquacao();
-       faseBinaria();
-       return 0;
+       // faseHexadecimal();
+       // faseRomana();
+        faseCadeado();
+        faseEquacao();
+        faseBinaria();
+        return 0;
     }
 
 
@@ -492,11 +478,12 @@ public class Game  {
         for (int i = 0; i < 10; i++) {
             System.out.println("\n");
         }
+        String nomeUsuario = nomePersonagem();
         // prólogo do jogo-------------------
         String teste = "Em uma pequena vila perdida no meio da floresta, viviam dois irmãos. Eles eram inseparáveis. \n" +
                 "Sempre se aventurando por onde iam. A irmã  mais velha, Lucy, adorava caçar desafios e diversão por onde ia, \n"
                 +
-                "já o irmão mais novo, *personagem* gostava de entender a natureza das coisas, de como elas funcionam . Lucy uma \n"
+                "já o irmão mais novo, " + nomeUsuario + " gostava de entender a natureza das coisas, de como elas funcionam . Lucy uma \n"
                 +
                 "certa vez explorando pela redondeza da vila encontrou uma caverna,  ainda não explorada por ela. \n\n...\n\n" +
                 "Como de costume, quando algo novo surge,  chama seu irmão para ir junto nessa jornada. \n" +
@@ -507,8 +494,8 @@ public class Game  {
                 +
                 "um sentimento de ansiedade e curiosidade que não poderiam deixar de escutar. \r\n\n...\n\n" +
                 "Em um certo momento, a caverna estava tão escura que mal conseguiam enxergar um ao \n" +
-                "outro, o único guia deles agora era a voz um do outro. De repente, Lucy para de falar, o *personagem* \n" +
-                "chama por seu nome, porém sem sucesso. O *personagem* entra em pânico e tenta voltar do caminho que fizeram \n"
+                "outro, o único guia deles agora era a voz um do outro. De repente, Lucy para de falar, o/a " + nomeUsuario + "\n" +
+                "chama por seu nome, porém sem sucesso. O/A " + nomeUsuario + " entra em pânico e tenta voltar do caminho que fizeram \n"
                 +
                 "na esperança de achar alguma luz novamente. \r\n\n...\n\n" +
                 "Ele começa a ver uma luz, corre em direção daquilo que seria a saída, mas na realidade, \n" +
@@ -516,7 +503,23 @@ public class Game  {
                 "parede, que iluminavam diversas celas de prisão, enferrujadas e repulsivas. Se deu conta que estava em uma \n"
                 +
                 "macabra masmorra abandonada.\r\n\n...\n\n";
-        for (char c : teste.toCharArray()) {
+
+        animacaoTexto(teste);
+    }
+
+
+
+    public static String nomePersonagem() {
+        Scanner input = new Scanner(System.in);
+        String nomeUsuario;
+        System.out.println("Digite o nome do seu personagem: ");
+        nomeUsuario = input.nextLine();
+        return nomeUsuario;
+    }
+
+    public static String animacaoTexto(String texto){
+        String textoJogo = texto;
+        for (char c : textoJogo.toCharArray()) {
             System.out.print(c);
             try {
                 Thread.sleep(1);
@@ -524,13 +527,7 @@ public class Game  {
                 e.printStackTrace();
             }
         }
-    }
-
-
-    public static void nomePersonagem() {
-        Scanner input = new Scanner(System.in);
-        String nomeUsuario;
-        System.out.println("Digite o nome do seu personagem: ");
-        nomeUsuario = input.nextLine();
+        return textoJogo;
     }
 }
+
