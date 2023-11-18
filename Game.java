@@ -25,8 +25,8 @@ public class Game  {
                 "2- Olhar mesa\r\n";
 
         do {
-        animacaoTexto(primeiraFase);
-        byte opcao = input.nextByte();
+            animacaoTexto(primeiraFase);
+            byte opcao = input.nextByte();
 
 
 
@@ -115,17 +115,18 @@ public class Game  {
         animacaoTexto(segundaFase);
 
 
-        System.out.printf("Equaçao de 1° grau: \n%dx-%d = %dx+%d ", a1, a2, a3, a4);
+        System.out.printf("Equaçao de 1° grau: \n%dx-%d = %dx+%d \n\n(obs: digitar apenas uma casa apos a virgula e usar virgula \n", a1, a2, a3, a4);
         System.out.print("Resposta: ");
         float resposta = input.nextFloat();
         float res1 = (a1 - a3);
         float res2 = (a4 + a2);
         float res3 = (res2 / res1);
-        if (res3 == resposta) {
+        if (Math.abs(res3 - resposta)<0.1) {
             System.out.println("parabens voce acertou.");
         } else {
             System.out.println("resposta errada. \nA resposta certa era : " + res3);
         }
+
     }
 
 
@@ -453,11 +454,11 @@ public class Game  {
 
 
     public static int jogo() throws InterruptedException {
-       // faseHexadecimal();
-       // faseRomana();
-        faseCadeado();
+        // faseHexadecimal();
+        // faseRomana();
+        // faseCadeado();
         faseEquacao();
-        faseBinaria();
+        // faseBinaria();
         return 0;
     }
 
@@ -530,4 +531,3 @@ public class Game  {
         return textoJogo;
     }
 }
-
