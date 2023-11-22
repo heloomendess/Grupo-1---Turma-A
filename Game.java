@@ -267,9 +267,9 @@ public class Game  {
                 String ponteiro4_M = "XV";
 
                     System.out.println("1º relógio ");
-                    System.out.println("Ponteiro Pequeno: ");
+                    System.out.println("Ponteiro Pequeno __:31. Escreva o número em romano");
                     resultPH1 = input.next();
-                    System.out.println("Ponteiro Grande: ");
+                    System.out.println("Ponteiro Grande 04:__. Escreva o número em romano");
                     resultPM1 = input.next();
                     System.out.println("2º Relógio");
                     System.out.println("Ponteiro Pequeno: ");
