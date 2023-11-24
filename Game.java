@@ -88,7 +88,7 @@ public class Game  {
                     break;
                 case 2:
                     System.out.println("Parece que no papel há um tipo de dica");
-                    System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro\r\n");
+                    System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro\n Somar tudo!\r\n");
                     break;
             }
         }while (!verificacaoResult);
@@ -111,21 +111,25 @@ public class Game  {
                 "Na parede que divide esses dois caminhos, há escrito: \r\n" +
                 "Esquerda = Falso\n" +
                 "Direita = Verdadeiro\n " +
-                "Mais abaixo, há uma outra frase escrita:";
+                "Mais abaixo, há uma outra frase escrita: \n";
         animacaoTexto(segundaFase);
 
-
-        System.out.printf("Equaçao de 1° grau: \n%dx-%d = %dx+%d \n\n(obs: digitar apenas uma casa apos a virgula e usar virgula \n", a1, a2, a3, a4);
-        System.out.print("Resposta: ");
         float resposta = input.nextFloat();
         float res1 = (a1 - a3);
         float res2 = (a4 + a2);
         float res3 = (res2 / res1);
+
+
+        System.out.printf("Equaçao de 1° grau: \n%dx-%d = %dx+%d\n   R = ",res3,  "\n\n(Dica: Resposta deve ser em víngula. \n", a1, a2, a3, a4);
+        System.out.print("Esquerda ou Direita? ");
         if (Math.abs(res3 - resposta)<0.1) {
             System.out.println("parabens voce acertou.");
         } else {
             System.out.println("resposta errada. \nA resposta certa era : " + res3);
         }
+
+
+
 
     }
 
@@ -167,7 +171,7 @@ public class Game  {
         Collections.shuffle(respostas);
         Collections.shuffle(respostas);
         Collections.shuffle(respostas);
-        System.out.println("'inicio da fase binaria...'");
+        System.out.println("Ao sair dessa cela, você ve");
         System.out.println("a sua frente vc encontra  (historia da fase...)");
         System.out.println("174 > 10101110 \n159 > 10011111 \n197 > 11000101 \n201 > 11001001 \n219 > ... \n\n");
         System.out.println("Dica... e uma dessa...\n");
@@ -208,7 +212,7 @@ public class Game  {
                     "O que deja fazer?\n" +
                     "1 - Olhar a parede a direita\n" +
                     "2 - Olhar a parede a esquerda\n" +
-                    "3 - Tentar abrir porta\n";
+                    "3 - Tentar abrir a porta\n";
 
             animacaoTexto(romanaFase);
 
@@ -244,7 +248,7 @@ public class Game  {
                             "X = 10\n" +
                             "L = 50\n" +
                             "E que 4 e 9 são: IV e IX\n" +
-                            "Você tenta abrir mexendo no ponteiros";
+                            "Você tenta abrir mexendo no ponteiros\n";
 
                     animacaoTexto(relogios);
 
@@ -261,9 +265,9 @@ public class Game  {
                     String ponteiro4_M = "XV";
 
                     System.out.println("1º relógio ");
-                    System.out.println("Ponteiro Pequeno __:31. Escreva o número em romano");
+                    System.out.println("Ponteiro Pequeno   (Dica __:31. Escreva o número em romano)");
                     resultPH1 = input.next();
-                    System.out.println("Ponteiro Grande 04:__. Escreva o número em romano");
+                    System.out.println("Ponteiro Grande   (Dica 04:__. Escreva o número em romano)");
                     resultPM1 = input.next();
                     System.out.println("2º Relógio");
                     System.out.println("Ponteiro Pequeno: ");
@@ -290,7 +294,7 @@ public class Game  {
                         System.out.println("Você escuta engrenagens se mexendo, parece que você acertou a sequência! ");
                     } else {
                         sairDoLoop = false;
-                        System.out.println("Errou, volta tudo");
+                        System.out.println("Nada aconteceu, será que faltou algo?");
                         //return opcao2;
                     }
                     break;
@@ -454,11 +458,11 @@ public class Game  {
 
 
     public static int jogo() throws InterruptedException {
-        // faseHexadecimal();
-        // faseRomana();
-        // faseCadeado();
+        faseRomana();
+        faseCadeado();
+        faseBinaria();
         faseEquacao();
-        // faseBinaria();
+        faseHexadecimal();
         return 0;
     }
 
