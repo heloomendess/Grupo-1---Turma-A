@@ -182,12 +182,15 @@ public class Game  {
             int a4 = random.nextInt(20);
             int a5 = random.nextInt(5);
 
-            String segundaFase = "\n\nAo destravar a tranca e abrir a porta, você percebe que há uma escadaria.\n" +
-                    "Ao descer essa escadaria, você se encontra em um corredor mal iluminado por tochas \n" +
-                    "Andando por esse corredor, no fim você encontra uma bifurcação.\n" +
-                    "Na parede que divide esses dois caminhos, há escrito: \r\n\n" +
-                    "Esquerda = Falso\n" +
-                    "Direita = Verdadeiro\n\n" +
+            String segundaFase = "\n\nVocê acorda assustado, está muito escuro.\n" +
+                    "Aquele sentimento de solidão volta a te prencher, será que verei minha irmã novamente? \n" +
+                    "Mas esse pensamento passa rápdio em sua mente após perceber o que houve.\n" +
+                    "Você acorda molhado e percebe que caiu em uma antiga fossa, talvez seja isso que amorteceu a queda\n" +
+                    "Você levanta e começa a tatear a parede, no intuito de encontrar algo\n" +
+                    "Na distância você encontra uma tocha, familiar, mas algo de cara chama sua atenção\n\n" +
+                    "A tocha ilumina uma bifurcação, e embaixo da tocha na parede há algo escrito \r\n\n" +
+                    "Resposta Falsa = Esquerda\n" +
+                    "Resposta Correta = Direita\n\n" +
                     "Mais abaixo, há uma outra frase escrita: \n\n";
             animacaoTexto(segundaFase);
 
@@ -195,14 +198,17 @@ public class Game  {
             float res2 = (a4 + a2);
             float res3 = (res2 / res1);
 
-            System.out.printf("Equaçao de 1° grau: \n\n%dx-%d = %dx+%d\nR = %.2f \n\n", a1, a2, a3, a4, res3);
-            System.out.println("1 - Esquerda\n2 - Direita? ");
+            System.out.printf("Equaçao de 1° grau: \n\n%dx-%d = %dx+%d\nResposta = %.2f \n\n", a1, a2, a3, a4, res3);
+            System.out.println("1 - Esquerda\n2 - Direita ");
             byte resposta = input.nextByte();
             if (resposta == 2) {
-                System.out.println("Parabéns você acertou!");
+                System.out.println("Você vira a direita começa a andar\n" +
+                                    "Você sente um sentimento de aperto, como se algo estivesse aproximando mas não exatamente o que\n");
                 condicao = true;
             } else {
-                System.out.printf("Resposta errada!! \nA resposta certa era DIREITA\n");
+                System.out.printf("Você vira a esquerda e começa a andar\n" +
+                                    "Você vê uma luz no fim, será finalmente a saída?\n" +
+                                    "Um nevoa aparece, e você começa a ficar tonto, não aguenta e desmaia.....\n");
                 condicao = false;
             }
         }while (!condicao);
@@ -220,14 +226,21 @@ public class Game  {
             float res2 = (a4 + a2);
             float res3 = (res2 / res1) + 1;
 
-            System.out.printf("Equaçao de 1° grau: \n\n%dx-%d = %dx+%d\nR = %.2f \n\n(Dica: Resposta deve ser em víngula.)\n", a1, a2, a3, a4, res3);
-            System.out.println("1 - Esquerda\n2 - Direita? ");
+            System.out.printf("\n\nDepois de caminhar um pouco, você se depara com outra bifurcação\n" +
+                                "Na parede, a o mesmo tipo de mensagem, mas com numero diferentes\n" +
+                                "Equaçao de 1° grau: \n\n%dx-%d = %dx+%d\nResposta = %.2f \n\n", a1, a2, a3, a4, res3);
+            System.out.println("1 - Esquerda\n2 - Direita\n");
             byte resposta = input.nextByte();
             if (resposta == 1) {
-                System.out.println("Parabéns você acertou!");
+                System.out.println("Ao virar a esquerda você começa a subir uma escada\n" +
+                                    "No alto da escadaria você escuta algo sussurrando, algo que não consegue ver direito \n" +
+                                    "Ao se aproximar, você não encontra nada");
                 condicao = true;
             } else {
-                System.out.printf("Resposta errada!! \nA resposta certa era ESQUERDA\n");
+                System.out.printf("Você vira a direita e começa a descer uma escada\n" +
+                                  "A distância, você escuta alguem gritando\n" +
+                                  "Você, em desespero querendo ajudar, tropeça e escorra da escada\n" +
+                                   "Você começa a ficar tonto, sente que alguma silhueta está chegando mas você desmaia antes\r\n");
                 condicao = false;
             }
         }while (!condicao);
@@ -243,16 +256,25 @@ public class Game  {
 
             float res1 = (a1 - a3);
             float res2 = (a4 + a2);
-            float res3 = (res2 / res1) + 1;
+            float res3 = (res2 / res1) -1 ;
 
-            System.out.printf("Equaçao de 1° grau: \n\n%dx-%d = %dx+%d\nR = %.2f \n\n(Dica: Resposta deve ser em víngula.)\n", a1, a2, a3, a4, res3);
-            System.out.println("1 - Esquerda\n2 - Direita? ");
+            System.out.printf("\n\nO lugar começa a ficar mais claro, com mais tochas e menos podre\n" +
+                    "Chegando perto de uma outra bifurcação, algo diferente acontece\n" +
+                    "Você escuta algo vindo dos corredores 'nãoconfienaproximaperguta'.....\n" +
+                    "Equaçao de 3° grau: \n\n%dx-%d = %dx+%d\nResposta = %.2f \n\n", a1, a2, a3, a4, res3);
+            System.out.println("2 - Esquerda -->\n1 - Direita <--\n");
             byte resposta = input.nextByte();
             if (resposta == 1) {
-                System.out.println("Parabéns você acertou!");
+                System.out.println("Você escolhe a esquerda e se sente cansado\n" +
+                                    "Não aguenta mais esses calculos\n" +
+                                    "Começa a sentira falta de sua irmã\n" +
+                                    "Com certeza ela encontraria outro caminho mais facil quebrando algo...\r\n" +
+                                    "Para alívio, você vê algo que não via a um tempo, luz do sol\r\n");
                 condicao = true;
             } else {
-                System.out.printf("Resposta errada!! \nA resposta certa era ESQUERDA!\n");
+                System.out.printf("Você fica confuso com essas perguntas e escolhe a direita\n" +
+                                  "Você começa andar e percebe que.............\n\n\n" +
+                                    "Você capota de sono\n\n");
                 condicao = false;
             }
         }while (!condicao);
@@ -260,8 +282,9 @@ public class Game  {
 
 
     public static void faseBinaria() {
-        Scanner entrada = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         boolean condicao = false;
+
 
         do {
             ArrayList<String> respostas = new ArrayList<String>();
@@ -301,20 +324,28 @@ public class Game  {
             Collections.shuffle(respostas);
 
             espacamento();
-            System.out.println("Ao sair dessa cela, você vê");
-            System.out.println("a sua frente vc encontra  (historia da fase...)");
-            System.out.println("174 > 10101110 \n159 > 10011111 \n197 > 11000101 \n201 > 11001001 \n219 > ... \n\n");
-            System.out.println("Dica... e uma dessa...\n");
+            System.out.println("Ao sair dessa cela, você vê outras celas trancadas, mas ninguém esta nelas\n" +
+                    "Olhando em volta, há um imenso corredor que provelmente leva ao fim desse lugar\n" +
+                    "Depois de alguns minutos caminhando, você encontra um portão de madeira\n" +
+                    "Com pouco esforço, você abre o portão, mas... algo esta estranho.....\n\n" +
+                    "Você está no mesmo corredor, no qual você veio, seria isso um loop?\n" +
+                    "Você começa a correr para tentar escapar disso, mas sem sucesso\n" +
+                    "Depois de correr por muito tempo, você se sente cansado e para um pouco\n" +
+                    "Quando você para, você percebe que no chão há algumas escrituras\n");
+
+            System.out.println("154 > 10 01 10 10 \n199 > 11 00 01 11 \n200 > 11 00 10 00 \n209 > 11 01 00 01 \n219 > ?? ?? ?? ?? \n\n");
+            System.out.println("Ao lado, no outro piso, há um tipo de dispositivo grudado no chão com teclas de 0 e 1, e esta escrito algo..\n" +
+                                "Numeros Binarios, escolha sabiamente!\n");
             for (String Elemento : respostas) {
                 System.out.println(Elemento);
             }
-            System.out.print("\ndigite a resposta correta: ");
-            int res = entrada.nextInt();
+            System.out.print("\nColoque o numero completo: ");
+            int res = input.nextInt();
             if (res == rc) {
-                System.out.println("parbens, voce acertou");
+                System.out.println("Você escuta e sente o chão inteiro tremendo, derrepente o não há mais chão, tudo começa a desabar e você cai nesse buraco\r\r");
                 condicao = true;
             } else {
-                System.out.println("Resposta errada");
+                System.out.println("Nada ocorreu, o dispositivo parace que reiniciou...");
                 condicao = false;
             }
         }while(!condicao);
@@ -606,7 +637,7 @@ public class Game  {
         espacamento();
         faseEquacao();
         espacamento();
-        faseHexadecimal();
+       // faseHexadecimal();
         return 0;
     }
 
