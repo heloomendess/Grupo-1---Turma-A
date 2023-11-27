@@ -149,7 +149,7 @@ public class Game  {
 
 
                     if (resultadoCadeado == resultado) {
-                        System.out.println("Você escuta um 'click', esta destrancada!");
+                        System.out.println("Você escuta um 'click', está destrancada!");
                         verificacaoResult = true;
                     } else {
                         System.out.println("Nada aconteceu...");
@@ -184,7 +184,7 @@ public class Game  {
 
             String segundaFase = "\n\nVocê acorda assustado, está muito escuro.\n" +
                     "Aquele sentimento de solidão volta a te prencher, será que verei minha irmã novamente? \n" +
-                    "Mas esse pensamento passa rápdio em sua mente após perceber o que houve.\n" +
+                    "Mas esse pensamento passa rápido em sua mente após perceber o que houve.\n" +
                     "Você acorda molhado e percebe que caiu em uma antiga fossa, talvez seja isso que amorteceu a queda\n" +
                     "Você levanta e começa a tatear a parede, no intuito de encontrar algo\n" +
                     "Na distância você encontra uma tocha, familiar, mas algo de cara chama sua atenção\n\n" +
@@ -331,11 +331,11 @@ public class Game  {
                     "Você está no mesmo corredor, no qual você veio, seria isso um loop?\n" +
                     "Você começa a correr para tentar escapar disso, mas sem sucesso\n" +
                     "Depois de correr por muito tempo, você se sente cansado e para um pouco\n" +
-                    "Quando você para, você percebe que no chão há algumas escrituras\n");
+                    "Quando você para, percebe que no chão há algumas escrituras:\n");
 
             System.out.println("154 > 10 01 10 10 \n199 > 11 00 01 11 \n200 > 11 00 10 00 \n209 > 11 01 00 01 \n219 > ?? ?? ?? ?? \n\n");
             System.out.println("Ao lado, no outro piso, há um tipo de dispositivo grudado no chão com teclas de 0 e 1, e esta escrito algo..\n" +
-                                "Numeros Binarios, escolha sabiamente!\n");
+                                "Números Binarios, escolha sabiamente!\n");
             for (String Elemento : respostas) {
                 System.out.println(Elemento);
             }
@@ -371,7 +371,7 @@ public class Game  {
             boolean verificacaoResult = false;
             String romanaFase = "Após sair dessa caverna, você se depara com uma sala misteriosa\n" +
                     "Aparentemente você está em especie de masmorra, as paredes são estramamente velhas e escuras\n" +
-                    "Nessa sala, há uma porta de ferro bem enferrujada, provavel que ninguem mexe nela há anos\n" +
+                    "Nessa sala, há uma porta de ferro bem enferrujada, provável que ninguem mexe nela há anos\n" +
                     "Mas não é só isso, nessa sala ha diversos relogios pendurados na parede, e você consegue mexer os ponteros neles\n" +
                     "O que deja fazer?\n" +
                     "1 - Olhar a parede a direita\n" +
@@ -394,7 +394,7 @@ public class Game  {
 
                     break;
                 case 2:
-                    String segundaDicaRomana = "Quando você olha a sua esquerda, tem algumas palabras escritas na parede:\n" +
+                    String segundaDicaRomana = "Quando você olha a sua esquerda, tem algumas palavras escritas na parede:\n" +
                             "Você percebe que são algarismos romanos... \n\n" +
                             "*_* PONTEIROS HORAS *_*\n" +
                             "1º II + II = ?\n" +
@@ -473,8 +473,8 @@ public class Game  {
         boolean condicao = false;
 
         do {
+            System.out.println("Sala hexa.");
             System.out.println("Cadeado Hex. _______");
-            System.out.println("sala hexa.");
 
             Random random = new Random();
             int a1 = 0, a2 = 0, a3 = 0;
@@ -494,10 +494,10 @@ public class Game  {
             String nb2 = converterParaBinario(a2);
             String nb3 = converterParaBinario(a3);
 
-            System.out.printf("pergunta. converta de binario p decimal: %s+%s-%s\n", nb1, nb2, nb3);
+            System.out.printf("Converta de binario p decimal: %s+%s-%s\n", nb1, nb2, nb3);
             int res = entrada.nextInt();
             if (res == 12) {
-                System.out.println("PARABÉNS! acertou a mizeravel...");
+                System.out.println("Parabéns, você acertou!");
             } // ------------------------------------------------------------------------------
             do {
                 a4 = random.nextInt(9) + 1;
@@ -510,10 +510,10 @@ public class Game  {
             String nb5 = converterParaBinario(a5);
             String nb6 = converterParaBinario(a6);
 
-            System.out.printf("Por qual o valor em decimal: %s+%s-%s\n", nb4, nb5, nb6);
+            System.out.printf("Qual o valor em decimal: %s+%s-%s\n", nb4, nb5, nb6);
             int res2 = entrada.nextInt();
             if (res2 == 10) {
-                System.out.println("PARABÉNS! acertou a mizeravel...");
+                System.out.println("Parabéns, você acertou!");
             } // ----------------------------------------------------------------------------------
             do {
                 a7 = random.nextInt(9) + 1;
@@ -526,10 +526,10 @@ public class Game  {
             String nb8 = converterParaBinario(a8);
             String nb9 = converterParaBinario(a9);
 
-            System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb7, nb8, nb9);
+            System.out.printf("Qual o valor em decimal: %s+%s-%s\n", nb7, nb8, nb9);
             int res3 = entrada.nextInt();
             if (res3 == 15) {
-                System.out.println("PARABÉNS! acertou a mizeravel...");
+                System.out.println("Parabéns, você acertou!");
             } // -----------------------------------------------------------------------------
 
             do {
@@ -543,17 +543,17 @@ public class Game  {
             String nb11 = converterParaBinario(a11);
             String nb12 = converterParaBinario(a12);
 
-            System.out.printf("per qual o valor em decimal: %s+%s-%s\n", nb10, nb11, nb12);
+            System.out.printf("Qual o valor em decimal: %s+%s-%s\n", nb10, nb11, nb12);
             int res4 = entrada.nextInt();
             if (res4 == 14) {
-                System.out.println("PARABÉNS! acertou a mizeravel...");
+                System.out.println("Parabéns, você acertou!");
             }
-            System.out.println("tex explicando...\ndigite os resultados anterio em Hex.");
-            System.out.println("cadeado: ");
+            System.out.println("Já que você desvendou as runas,\ndigite os resultados anteriores somados em Hexadecimal.");
+            System.out.println("Cadeado: ");
             String res5 = entrada.next();
 
             if (res5.equals("CAFE") || res5.equals("cafe") || res5.equals("café") || res5.equals("Cafe") || res5.equals("Café") || res5.equals("CAFÉ")) {
-                System.out.println("Parabéns, Bora para próxima fase");
+                System.out.println("Parabéns, você desbloqueou a próxima fase!");
                 condicao = true;
             } else {
                 System.out.println("Resposta errada");
