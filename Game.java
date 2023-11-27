@@ -399,7 +399,7 @@ public class Game  {
                             "*_* PONTEIROS HORAS *_*\n" +
                             "1º II + II = ?\n" +
                             "2º XI + XI = ?\n" +
-                            "3º XVIII * III = ?\n" +
+                            "3º X - II = ?\n" +
                             "4º XXX - XV = ?\n\n\n";
 
                     animacaoTexto(segundaDicaRomana);
