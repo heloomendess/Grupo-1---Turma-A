@@ -6,10 +6,6 @@ import java.util.Scanner;
 import java.util.Collections;
 import java.util.ArrayList;
 public class Game  {
-    static Scanner input = new Scanner(System.in);
-    /**
-     * @return
-     */
 
     public static void espacamento() {
         for (int i = 0; i < 5; i++) {
@@ -21,8 +17,13 @@ public class Game  {
         for (int i = 0; i < 10; i++) {
             System.out.println("\n");
         }
+
+        // ------------------------------------------------------------------------------
+
         String nomeUsuario = nomePersonagem();
-        // prólogo do jogo-------------------
+
+        // Prologo------------------------------------------------------------------------------
+
         String teste = "Em uma pequena vila perdida no meio da floresta, viviam dois irmãos. Eles eram inseparáveis. \n" +
                 "Sempre se aventurando por onde iam. A irmã  mais velha, Lucy, adorava caçar desafios e diversão por onde ia, \n"
                 +
@@ -46,8 +47,8 @@ public class Game  {
                 "parede, que iluminavam diversas celas de prisão, enferrujadas e repulsivas. Se deu conta que estava em uma \n"
                 +
                 "macabra masmorra abandonada.\r\n\n...\n\n";
-
         animacaoTexto(teste);
+
     }
 
 
@@ -59,10 +60,11 @@ public class Game  {
         return nomeUsuario;
     }
 
+
     public static String animacaoTexto(String texto){
         String textoJogo = texto;
-        for (char c : textoJogo.toCharArray()) {
-            System.out.print(c);
+        for (char letra : textoJogo.toCharArray()) {
+            System.out.print(letra);
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -72,9 +74,14 @@ public class Game  {
         return textoJogo;
     }
 
+
     public static float faseCadeado() throws InterruptedException {
+        Scanner input = new Scanner(System.in);
         int resultado = 0;
         boolean verificacaoResult = false;
+
+        // ------------------------------------------------------------------------------
+
         String primeiraFase = "A porta fechada começa a abrir sozinha, entranho para uma masmorra algo tecnológico assim.\r\n" +
                 "Quando você atravesa essa porta, você se encontra em uma jaula, repleta de barras e grades a volta.\r\n" +
                 "A sua frente há uma porta trancada, desta vez com uma simples fechadura.\r\n\n" +
@@ -85,11 +92,11 @@ public class Game  {
                 "1- Tentar abrir cadeado\r\n" +
                 "2- Olhar mesa\r\n\n";
 
+        // ------------------------------------------------------------------------------
+
         do {
             animacaoTexto(primeiraFase);
             byte opcao = input.nextByte();
-
-
 
             switch (opcao) {
                 case 1:
@@ -124,11 +131,14 @@ public class Game  {
                     int S3 = random.nextInt(10);
                     int T3 = random.nextInt(10);
 
+                    // ------------------------------------------------------------------------------
 
                     System.out.println("*_* 1ª Fileira de Senha *_*");
                     System.out.printf("{%d*%d+[%d(%d*%d)+%d+%d]-%d*%d}\n", K, L, M, N, O, P, Q, R, S);
                     System.out.println("1ª resposta: ");
                     int resultadoJogador = input.nextInt();
+
+                    // ------------------------------------------------------------------------------
 
                     int resultado1 = (K * L + (M * (N * O) + P + Q) - R * S);
                     System.out.println("*_* 2ª Fileira de Senha *_*");
@@ -136,17 +146,22 @@ public class Game  {
                     System.out.println("2ª resposta: ");
                     int segundoResultadoJogador = input.nextInt();
 
+                    // ------------------------------------------------------------------------------
+
                     int resultado2 = (K2 * L2 + (M2 * (N2 * O2) - P2 + Q2) - R2 * S2);
                     System.out.println("*_* 3ª Fileira de Senha *_*");
                     System.out.printf("{%d*%d+[%d(%d*%d)-%d+%d]-%d*%d}\n\n", K3, L3, M3, N3, O3, P3, Q3, R3, S3);
                     System.out.println("3ª resposta: ");
                     int terceiroResultadoJogador = input.nextInt();
 
+                    // ------------------------------------------------------------------------------
+
                     int resultado3 = (K3 * L3 + (M3 * (N3 * O3) - P3 + Q3) - R3 * S3);
                     resultado = resultado1 + resultado2 + resultado3;
                     System.out.println("Qual é a senha?");
                     int resultadoCadeado = input.nextInt();
 
+                    // ------------------------------------------------------------------------------
 
                     if (resultadoCadeado == resultado) {
                         System.out.println("Você escuta um 'click', está destrancada!");
@@ -156,24 +171,25 @@ public class Game  {
                     }
                     break;
 
+                // ------------------------------------------------------------------------------
+
                 case 2:
                     espacamento();
                     System.out.println("Parece que no papel há um tipo de dica");
                     System.out.println("Resolver nesta ordem:\n ( ) - Primeiro\n [ ] - Segundo\n { } - Terceiro\n Somar tudo!\r\n");
                     break;
             }
-
         }while (!verificacaoResult);
-
         return resultado;
     }
 
 
     public static void faseEquacao() {
-
+        Scanner input = new Scanner(System.in);
         boolean condicao = false;
 
-        //primeiraParede
+
+        // Primeira Parede----------------------------------------------------------------------
         do {
             Random random = new Random();
             int a1 = random.nextInt(5) + 5;
@@ -213,7 +229,8 @@ public class Game  {
             }
         }while (!condicao);
 
-        //segundaParede
+
+        // Segunda Parede----------------------------------------------------------------------
         do {
             Random random = new Random();
             int a1 = random.nextInt(5) + 5;
@@ -245,7 +262,8 @@ public class Game  {
             }
         }while (!condicao);
 
-        //terceiraParede
+
+        // Terceira Parede----------------------------------------------------------------------
         do {
             Random random = new Random();
             int a1 = random.nextInt(5) + 5;
@@ -264,6 +282,8 @@ public class Game  {
                     "Equaçao de 3° grau: \n\n%dx-%d = %dx+%d\nResposta = %.2f \n\n", a1, a2, a3, a4, res3);
             System.out.println("2 - Esquerda -->\n1 - Direita <--\n");
             byte resposta = input.nextByte();
+
+            // Verificação------------------------------------------------------------------------
             if (resposta == 1) {
                 System.out.println("Você escolhe a esquerda e se sente cansado\n" +
                                     "Não aguenta mais esses calculos\n" +
@@ -315,6 +335,9 @@ public class Game  {
             String r1 = "" + a + b + c + d + e + f + g + h;
             String r2 = "" + f + g + h + i + j + k + l + m;
             String r3 = "" + n + o + p + q + r + s + t + u;
+
+            // ------------------------------------------------------------------------------
+
             respostas.add(r0);
             respostas.add(r1);
             respostas.add(r2);
@@ -369,6 +392,9 @@ public class Game  {
             String resultPM4;
             String resultPH4;
             boolean verificacaoResult = false;
+
+            // Texto Explicativo---------------------------------------------------------------------
+
             String romanaFase = "Após sair dessa caverna, você se depara com uma sala misteriosa\n" +
                     "Aparentemente você está em especie de masmorra, as paredes são estramamente velhas e escuras\n" +
                     "Nessa sala, há uma porta de ferro bem enferrujada, provável que ninguem mexe nela há anos\n" +
@@ -377,10 +403,11 @@ public class Game  {
                     "1 - Olhar a parede a direita\n" +
                     "2 - Olhar a parede a esquerda\n" +
                     "3 - Tentar abrir a porta\n\n";
-
             animacaoTexto(romanaFase);
-
             byte opcao2  = input.nextByte();
+
+            // ------------------------------------------------------------------------------
+
             switch (opcao2) {
                 case 1:
                     String primeiraDicaRomana = "Quando você olha a sua direita, tem algumas letras escritas na parede:\n" +
@@ -391,8 +418,10 @@ public class Game  {
                             "3º = XVIII * III = ?\n" +
                             "4º = XXX - XV = ?\n\n\n";
                     animacaoTexto(primeiraDicaRomana);
-
                     break;
+
+                // ------------------------------------------------------------------------------
+
                 case 2:
                     String segundaDicaRomana = "Quando você olha a sua esquerda, tem algumas palavras escritas na parede:\n" +
                             "Você percebe que são algarismos romanos... \n\n" +
@@ -401,11 +430,12 @@ public class Game  {
                             "2º XI + XI = ?\n" +
                             "3º X - II = ?\n" +
                             "4º XXX - XV = ?\n\n\n";
-
                     animacaoTexto(segundaDicaRomana);
                     break;
+
+                // ------------------------------------------------------------------------------
+
                 case 3:
-                    espacamento();
                     String relogios = "Ao lado da porta, há quatro relógios em sistema romano\n" +
                             "Você entende um pouco desse sistema:\n" +
                             "I = 1\n" +
@@ -414,7 +444,6 @@ public class Game  {
                             "L = 50\n" +
                             "E que 4 e 9 são: IV e IX\n" +
                             "Você tenta abrir mexendo no ponteiros.\n\n\n";
-
                     animacaoTexto(relogios);
 
                     String ponteiro1_H = "IV";
@@ -468,6 +497,8 @@ public class Game  {
         } while (!sairDoLoop);
     }
 
+
+    //faseHexadecimal
     public static void faseHexadecimal() {
         Scanner entrada = new Scanner(System.in);
         boolean condicao = false;
@@ -482,6 +513,8 @@ public class Game  {
             int a7 = 0, a8 = 0, a9 = 0;
             int a10 = 0, a11 = 0, a12 = 0;
             int q1 = 0, q2 = 0, q3 = 0, q4 = 0;
+
+            // ------------------------------------------------------------------------------
 
             do {
                 a1 = random.nextInt(9) + 1;
@@ -498,7 +531,10 @@ public class Game  {
             int res = entrada.nextInt();
             if (res == 12) {
                 System.out.println("Parabéns, você acertou!");
-            } // ------------------------------------------------------------------------------
+            }
+
+            // ------------------------------------------------------------------------------
+
             do {
                 a4 = random.nextInt(9) + 1;
                 a5 = random.nextInt(9) + 1;
@@ -514,7 +550,10 @@ public class Game  {
             int res2 = entrada.nextInt();
             if (res2 == 10) {
                 System.out.println("Parabéns, você acertou!");
-            } // ----------------------------------------------------------------------------------
+            }
+
+            // ----------------------------------------------------------------------------------
+
             do {
                 a7 = random.nextInt(9) + 1;
                 a8 = random.nextInt(9) + 1;
@@ -530,7 +569,9 @@ public class Game  {
             int res3 = entrada.nextInt();
             if (res3 == 15) {
                 System.out.println("Parabéns, você acertou!");
-            } // -----------------------------------------------------------------------------
+            }
+
+            // ------------------------------------------------------------------------------
 
             do {
                 a10 = random.nextInt(9) + 1;
@@ -562,6 +603,8 @@ public class Game  {
         }while(!condicao);
     }
 
+
+    //faseBinária
     public static String converterParaBinario(int decimal) {
         if (decimal == 0) {
             return "0000";
@@ -586,6 +629,9 @@ public class Game  {
         Scanner input = new Scanner(System.in);
         System.out.printf("Bem-vindo ao Echos of Dungeons! \n");
         System.out.printf("Escolha uma opção abaixo: \n");
+
+        // ------------------------------------------------------------------------------
+
         do {
             System.out.println("1 - Instruções");
             System.out.println("2 - Jogar");
@@ -603,6 +649,9 @@ public class Game  {
 
                     animacaoTexto(Instrucoes);
                     break;
+
+                // ------------------------------------------------------------------------------
+
                 case 2:
                     System.out.println("Se vira para jogar");
                     espacamento();
@@ -610,6 +659,9 @@ public class Game  {
                     jogo();
                     espacamento();
                     break;
+
+                // ------------------------------------------------------------------------------
+
                 case 3:
                     System.out.println("Criado por:\r\n" +
                             "- Filipe Angelo de Oliveira\r\n" +
@@ -617,10 +669,16 @@ public class Game  {
                             "- Kevin Stenio Fernandes Lacerda Duarte\r\n" +
                             "- Renan França de Jorge\r\n");
                     break;
+
+                // ------------------------------------------------------------------------------
+
                 case 4:
                     System.out.println("Volte logo!");
                     retornarLoop = true;
                     break;
+
+                // ------------------------------------------------------------------------------
+
                 default:
                     System.out.println("Tente outro código!");
             }
@@ -637,7 +695,7 @@ public class Game  {
         espacamento();
         faseEquacao();
         espacamento();
-       // faseHexadecimal();
+        faseHexadecimal();
         return 0;
     }
 
