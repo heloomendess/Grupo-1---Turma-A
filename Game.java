@@ -1,4 +1,7 @@
+import javax.sound.sampled.*;
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLOutput;
 import java.util.IllegalFormatCodePointException;
 import java.util.Random;
@@ -499,7 +502,7 @@ public class Game  {
 
 
     //faseHexadecimal
-    public static void faseHexadecimal() {
+    public static void faseHexadecimal() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         Scanner entrada = new Scanner(System.in);
         boolean condicao = false;
 
@@ -595,7 +598,18 @@ public class Game  {
 
             if (res5.equals("CAFE") || res5.equals("cafe") || res5.equals("café") || res5.equals("Cafe") || res5.equals("Café") || res5.equals("CAFÉ")) {
                 System.out.println("Parabéns, você desbloqueou a próxima fase!");
+
                 condicao = true;
+
+                // Carrega o arquivo de áudio
+                String resource = "cadeado.WAV";
+                InputStream input = Game.class.getResourceAsStream(resource);
+                Clip oClip = AudioSystem.getClip();
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(input);
+                oClip.open(audioInput);
+
+                oClip.loop(0);
+
             } else {
                 System.out.println("Resposta errada");
                 condicao = false;
@@ -624,7 +638,7 @@ public class Game  {
         return binario.toString();
     }
 
-    public static int Menu() throws InterruptedException {
+    public static int Menu() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         boolean retornarLoop = false;
         Scanner input = new Scanner(System.in);
         System.out.printf("Bem-vindo ao Echos of Dungeons! \n");
@@ -687,7 +701,7 @@ public class Game  {
     }
 
 
-    public static int jogo() throws InterruptedException {
+    public static int jogo() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         faseRomana();
         faseCadeado();
         espacamento();
@@ -700,7 +714,7 @@ public class Game  {
     }
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException, IOException {
         int op = Menu();
     }
 
