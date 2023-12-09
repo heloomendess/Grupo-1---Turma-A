@@ -27,11 +27,11 @@ public class Game {
         String teste = "Em uma pequena vila perdida no meio da floresta, viviam dois irmãos. Eles eram inseparáveis. \n" +
                 "Sempre se aventurando por onde iam. A irmã  mais velha, Lucy, adorava caçar desafios e diversão por onde ia, \n"
                 +
-                "já o irmão mais novo, " + nomeUsuario + " gostava de entender a natureza das coisas, de como elas funcionam . Lucy uma \n"
+                "já o irmão mais novo, " + nomeUsuario + " gostava de entender a natureza das coisas e de como elas funcionam. Lucy uma \n"
                 +
                 "certa vez explorando pela redondeza da vila encontrou uma caverna,  ainda não explorada por ela. \n\n...\n\n" +
                 "Como de costume, quando algo novo surge,  chama seu irmão para ir junto nessa jornada. \n" +
-                "Ao chegar nela entraram sem sequer pensar duas vezes, eram fascinados em mistérios e segredos. Ao entrarem \n"
+                "Ao chegar nela entraram sem se quer pensar duas vezes, eles eram fascinados em mistérios e segredos. Ao entrarem \n"
                 +
                 "perceberam que era extremamente escuro, não iriam ficar muito tempo ali sem algo para iluminar o caminho. \n" +
                 "Mas sem explicação, de alguma forma, essa caverna chamava eles, como se alguém estivesse sussurrando ou até mesmo \n"
@@ -83,7 +83,7 @@ public class Game {
         // ------------------------------------------------------------------------------
 
         String primeiraFase = "A porta fechada começa a abrir sozinha, entranho para uma masmorra algo tecnológico assim.\r\n" +
-                "Quando você atravesa essa porta, você se encontra em uma jaula, repleta de barras e grades a volta.\r\n" +
+                "Quando você atravesa essa porta, se encontra em uma jaula, repleta de barras e grades a volta.\r\n" +
                 "A sua frente há uma porta trancada, desta vez com uma simples fechadura.\r\n\n" +
                 "Ao se aproximar você percebe que tem uma tranca com 3 fileiras de senha para colocar.\r\n" +
                 "Em cada fileira ha escrito algumas contas para resolver.\r\n" +
@@ -199,7 +199,7 @@ public class Game {
             int a5 = random.nextInt(5);
 
             String segundaFase = "\n\nVocê acorda assustado, está muito escuro.\n" +
-                    "Aquele sentimento de solidão volta a te prencher, será que verei minha irmã novamente? \n" +
+                    "Aquele sentimento de solidão volta a te prencher: Será que verei minha irmã novamente? \n" +
                     "Mas esse pensamento passa rápido em sua mente após perceber o que houve.\n" +
                     "Você acorda molhado e percebe que caiu em uma antiga fossa, talvez seja isso que amorteceu a queda\n" +
                     "Você levanta e começa a tatear a parede, no intuito de encontrar algo\n" +
@@ -219,12 +219,12 @@ public class Game {
             byte resposta = input.nextByte();
             if (resposta == 2) {
                 System.out.println("Você vira a direita começa a andar\n" +
-                        "Você sente um sentimento de aperto, como se algo estivesse aproximando mas não exatamente o que\n");
+                        "Sente um sentimento de aperto, como se algo estivesse aproximando...\n");
                 condicao = true;
             } else {
                 System.out.printf("Você vira a esquerda e começa a andar\n" +
                         "Você vê uma luz no fim, será finalmente a saída?\n" +
-                        "Um nevoa aparece, e você começa a ficar tonto, não aguenta e desmaia.....\n");
+                        "Uma nevoa aparece, e você começa a ficar tonto, não aguenta e desmaia.....\n");
                 condicao = false;
             }
         }while (!condicao);
@@ -255,9 +255,9 @@ public class Game {
                 condicao = true;
             } else {
                 System.out.printf("Você vira a direita e começa a descer uma escada\n" +
-                        "A distância, você escuta alguem gritando\n" +
+                        "A distância, você escuta alguém gritando\n" +
                         "Você, em desespero querendo ajudar, tropeça e escorra da escada\n" +
-                        "Você começa a ficar tonto, sente que alguma silhueta está chegando mas você desmaia antes\r\n");
+                        "Você começa a ficar tonto, sente que alguma silhueta está chegando mas você desmaia antes de saber quem era.\r\n");
                 condicao = false;
             }
         }while (!condicao);
@@ -287,9 +287,9 @@ public class Game {
             if (resposta == 1) {
                 System.out.println("Você escolhe a esquerda e se sente cansado\n" +
                         "Não aguenta mais esses calculos\n" +
-                        "Começa a sentira falta de sua irmã\n" +
+                        "Começa a sentir falta de sua irmã\n" +
                         "Com certeza ela encontraria outro caminho mais facil quebrando algo...\r\n" +
-                        "Para alívio, você vê algo que não via a um tempo, luz do sol\r\n");
+                        "Para o seu alívio, você vê algo que não via a um tempo, luz do sol.\r\n");
                 condicao = true;
             } else {
                 System.out.printf("Você fica confuso com essas perguntas e escolhe a direita\n" +
@@ -347,10 +347,10 @@ public class Game {
             Collections.shuffle(respostas);
 
             espacamento();
-            String explicacaoBinaria = "Ao sair dessa cela, você vê outras celas trancadas, mas ninguém esta nelas\n" +
+            String explicacaoBinaria = "Ao sair dessa cela, você vê outras celas trancadas, mas ninguém está nelas\n" +
                     "Olhando em volta, há um imenso corredor que provelmente leva ao fim desse lugar\n" +
                     "Depois de alguns minutos caminhando, você encontra um portão de madeira\n" +
-                    "Com pouco esforço, você abre o portão, mas... algo esta estranho.....\n\n" +
+                    "Com pouco esforço, você abre o portão, mas... algo está estranho.....\n\n" +
                     "Você está no mesmo corredor, no qual você veio, seria isso um loop?\n" +
                     "Você começa a correr para tentar escapar disso, mas sem sucesso\n" +
                     "Depois de correr por muito tempo, você se sente cansado e para um pouco\n" +
@@ -395,9 +395,9 @@ public class Game {
             // Texto Explicativo---------------------------------------------------------------------
 
             String romanaFase = "Após sair dessa caverna, você se depara com uma sala misteriosa\n" +
-                    "Aparentemente você está em especie de masmorra, as paredes são estramamente velhas e escuras\n" +
-                    "Nessa sala, há uma porta de ferro bem enferrujada, provável que ninguem mexe nela há anos\n" +
-                    "Mas não é só isso, nessa sala ha diversos relogios pendurados na parede, e você consegue mexer os ponteros neles\n" +
+                    "Aparentemente você está em uma especie de masmorra, as paredes são estramamente velhas e escuras\n" +
+                    "Nessa sala, há uma porta de ferro bem enferrujada, provável que ninguém havia mexido nela há anos\n" +
+                    "Mas não é só isso, nessa sala há diversos relógios pendurados na parede, e você consegue mexer os ponteiros neles\n" +
                     "O que deja fazer?\n" +
                     "1 - Olhar a parede a direita\n" +
                     "2 - Olhar a parede a esquerda\n" +
@@ -442,7 +442,7 @@ public class Game {
                             "X = 10\n" +
                             "L = 50\n" +
                             "E que 4 e 9 são: IV e IX\n" +
-                            "Você tenta abrir mexendo no ponteiros.\n\n\n";
+                            "Você tenta abrir mexendo nos ponteiros.\n\n\n";
                     animacaoTexto(relogios);
 
                     String ponteiro1_H = "IV";
@@ -503,12 +503,12 @@ public class Game {
         boolean condicao = false;
 
         do {
-            String explicacaoHexa = "Ao chegar ao final desse corredor, você se depara em salão de algum castelo,\n" +
-                    "você começa e ao andar um pouco, e você encontra uma escadria para baixo.\n" +
+            String explicacaoHexa = "Ao chegar ao final desse corredor, você se depara em um salão, como o de um castelo,\n" +
+                    "você começa e ao andar um pouco, e encontra uma escadria para baixo.\n" +
                     "No alto da escadaria algo chama sua atenção, você esta no salão do rei,\n" +
                     "você vê algumas portas tampando o caminho para chegar no trono.\n" +
                     "E quando você olha para o trono, no lugar onde o rei sentaria está alguém desmaiado,\n" +
-                    "esse alguem, é sua irma, LUCY!\n\n" +
+                    "esse alguem, é sua irmã, LUCY!\n\n" +
                     "Você corre em direção dessas portas, você precisa saber se ela esta bem, finalmente a encontrou.\n" +
                     "Ao descer as escadas, um papel dourado está no chão...\n" +
                     "ao pegar você encontra isso: \n\n\n" +
@@ -534,7 +534,7 @@ public class Game {
                     "Porta 4 = 14\n\n" +
                     "No meio dessa divisão de portas, há algo escrito: \n";
 
-                    animacaoTexto(explicacaoHexa);
+            animacaoTexto(explicacaoHexa);
 
 
             Random random = new Random();
@@ -560,7 +560,7 @@ public class Game {
             System.out.printf("Em qual valor de porta entrar?: %s+%s-%s\n", nb1, nb2, nb3);
             int res = entrada.nextInt();
             if (res == 12) {
-                String questao2Cafe = "Aparentemente esta porta esta aberta, mas esta correta?\n" +
+                String questao2Cafe = "Aparentemente esta porta esta aberta, mas está correta?\n" +
                         "Ao atravessar essa porta, você se depara com outras 4 portas\n\n" +
                         "Porta 1 = 16\n" +
                         "Porta 2 = 9\n" +
@@ -612,7 +612,7 @@ public class Game {
             System.out.printf("Em qual valor de porta entrar?: %s+%s-%s\n", nb7, nb8, nb9);
             int res3 = entrada.nextInt();
             if (res3 == 15) {
-                String questao4Cafe = "Você entra por ela e também esta aberta...\n" +
+                String questao4Cafe = "Você entra por ela e também está aberta...\n" +
                         "Mais uma vez, mais 4 portas, terá fim essas portas?? \n\n" +
                         "Porta 1 = 6+9\n" +
                         "Porta 2 = 8+4\n" +
@@ -640,16 +640,16 @@ public class Game {
             if (res4 == 14) {
                 String finaldoCafe = "Ao passar por essa porta, você encontra um portão com dezenas de grades!\n" +
                         "Ele esta dividindo entre você e sua irmã\n" +
-                        "Ao lado dela, ha uma saida na parede, que leva para fora, senod finalmente a saida!!\n" +
+                        "Ao lado dela, há uma saida na parede, que leva para fora, sendo finalmente a saida!!\n" +
                         "Mas como vou até ela??\n\n" +
-                        "Ao seu lado esquerdo, ha um piano\n" +
-                        "Velho, mas parece que funciona, e tem uma partura nele, que diz: \n\n" +
+                        "Ao seu lado esquerdo, há um piano\n" +
+                        "velho, mas parece que funciona, e tem uma partitura nele, que diz: \n\n" +
                         "*_* Notas de piano *_*\n" +
                         "   |C|D|E|F|G|A|B|\n" +
                         "Resultados Portas = Hexadecimal\n" +
                         "*_* VOCÊ TERA UMA CHANCE! *_*\n\n";
 
-                        animacaoTexto(finaldoCafe);
+                animacaoTexto(finaldoCafe);
             }
             System.out.println("É agora, eu não posso falhar, eu tenho que salvar ela!\n");
             System.out.println("Qual teclas devo tocar?\n");
@@ -657,7 +657,7 @@ public class Game {
 
             if (res5.equals("CAFE") || res5.equals("cafe") || res5.equals("café") || res5.equals("Cafe") || res5.equals("Café") || res5.equals("CAFÉ")) {
                 String fim = "Ao tocar as teclas " + res5 + ", você escuta as grades descendo, e o portão se abrindo\n" +
-                        "Você CORRE em direçãoa sua irmã, ela esta sentada, desmaiada no trono\n" +
+                        "Você CORRE em direção a sua irmã, ela está sentada, desmaiada no trono\n" +
                         "Você começa a mexer nela e ela acorda, vocês se olham e se abraçam como nunca\n" +
                         "Com os olhos cheios de lagrimas, você pergunta como ela foi para ali, sentada no trono\n" +
                         "Ela conta que passou por diversos desafios de luta e sobrevivência, contra criaturs horrendas\n" +
@@ -665,14 +665,14 @@ public class Game {
                         "Contam que nunca mais irão soltar a mão um do outro e sempre se aventurar juntos, com uma tocha, claro!\n\n\n" +
                         "FIM";
 
-                        // Carrega o arquivo de áudio
-                        String resource = "cadeado.WAV";
-                        InputStream input = Game.class.getResourceAsStream(resource);
-                        Clip oClip = AudioSystem.getClip();
-                        AudioInputStream audioInput = AudioSystem.getAudioInputStream(input);
-                        oClip.open(audioInput);
+                // Carrega o arquivo de áudio
+                String resource = "cadeado.WAV";
+                InputStream input = Game.class.getResourceAsStream(resource);
+                Clip oClip = AudioSystem.getClip();
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(input);
+                oClip.open(audioInput);
 
-                        oClip.loop(0);
+                oClip.loop(0);
 
                 animacaoTexto(fim);
 
@@ -784,12 +784,12 @@ public class Game {
     }
 
     public static void creditosFim(){
-         String credito = "Criado por:\r\n\n\n" +
-                            "- Filipe Angelo de Oliveira\r\n\n\n" +
-                            "- Heloisa Mendes do Nascimento Barbosa\r\n\n\n" +
-                            "- Kevin Stenio Fernandes Lacerda Duarte\r\n\n\n" +
-                            "- Renan França de Jorge\r\n\n\n";
-         animacaoTexto(credito);                   
+        String credito = "Criado por:\r\n\n\n" +
+                "- Filipe Angelo de Oliveira\r\n\n\n" +
+                "- Heloisa Mendes do Nascimento Barbosa\r\n\n\n" +
+                "- Kevin Stenio Fernandes Lacerda Duarte\r\n\n\n" +
+                "- Renan França de Jorge\r\n\n\n";
+        animacaoTexto(credito);
     }
 
 
